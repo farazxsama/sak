@@ -20,10 +20,11 @@ export default function Hero() {
     <section className="relative min-h-screen w-full overflow-hidden bg-[#11161A]">
       {/* Background image — replace with a real project photo later */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/img/sak-hero-banner.png"
           alt="Engineering and architectural project"
-          sizes="100vw"
+          fill
+          // sizes="100vw"
           className="object-cover"
         />
       </div>
