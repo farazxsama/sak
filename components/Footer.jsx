@@ -19,8 +19,8 @@ const companyLinks = [
 ];
 
 const socialLinks = [
-    { label: 'Instagram', href: 'https://instagram.com', icon: FiInstagram },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: FiLinkedin },
+    { label: 'Instagram', href: 'https://www.instagram.com/sak.ea.official?stkn=cTFrN3RrcDBra2ps', icon: FiInstagram },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/safwan-khan-41782b27b', icon: FiLinkedin },
 ];
 
 export default function Footer() {
@@ -58,11 +58,11 @@ export default function Footer() {
                                 info@sakengineering.com
                             </a>
                             <a
-                                href="tel:+910000000000"
+                                href="tel:+917842103005"
                                 className="flex items-center gap-3 text-[14px] text-white/60 transition-colors duration-200 hover:text-white"
                             >
                                 <FiPhone size={15} className="shrink-0 text-[#3E7CB1]" />
-                                +91 00000 00000
+                                +91 78421 03005
                             </a>
                             <div className="flex items-start gap-3 text-[14px] text-white/60">
                                 <FiMapPin size={15} className="mt-0.5 shrink-0 text-[#3E7CB1]" />
