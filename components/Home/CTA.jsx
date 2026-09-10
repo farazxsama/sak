@@ -6,7 +6,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export default function CTA() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#11161A] py-24 sm:py-32">
+    <section className="relative w-full overflow-hidden bg-[#11161A] border-b border-[#ffffe4]/10 py-16 sm:py-20">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
