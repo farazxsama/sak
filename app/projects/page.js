@@ -1,10 +1,16 @@
 import React from 'react'
+import PageBanner from "../../components/Reusable/PageBanner"
+import ProjectsListing from '../../components/Projects/ProjectsListing';
 
 const page = () => {
     return (
-        <div className='h-[100vh] flex justify-center items-center bg-black'>
-            Projects Page
-        </div>
+        <>
+            <PageBanner
+                eyebrow="Our Projects"
+                title="Explore our portfolio of architectural, engineering and design projects."
+            />
+            <ProjectsListing/>
+        </>
     )
 }
 
