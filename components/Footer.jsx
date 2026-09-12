@@ -27,7 +27,7 @@ const socialLinks = [
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#11161A]">
+        <footer className="relative z-10 w-full bg-[#080B0E] border-t border-white/10 text-white">
             <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 sm:pt-20 lg:px-10">
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}

@@ -2,86 +2,84 @@
 
 import { motion } from 'framer-motion';
 
-// Replace these with real client logos later — drop files in /public/images/clients/
-// and swap the `logo` path. Keeping name + logo together so it stays a single source of truth.
 const rowOne = [
-    { name: 'Client One', logo: '/images/clients/client-1.png' },
-    { name: 'Client Two', logo: '/images/clients/client-2.png' },
-    { name: 'Client Three', logo: '/images/clients/client-3.png' },
-    { name: 'Client Four', logo: '/images/clients/client-4.png' },
-    { name: 'Client Five', logo: '/images/clients/client-5.png' },
+  { name: 'Apex Infra Solutions' },
+  { name: 'Prestige Urban Corp' },
+  { name: 'L&T Construction Alliance' },
+  { name: 'Godrej Properties Group' },
+  { name: 'Tata Projects Ecosystem' },
 ];
 
 const rowTwo = [
-    { name: 'Client Six', logo: '/images/clients/client-6.png' },
-    { name: 'Client Seven', logo: '/images/clients/client-7.png' },
-    { name: 'Client Eight', logo: '/images/clients/client-8.png' },
-    { name: 'Client Nine', logo: '/images/clients/client-9.png' },
-    { name: 'Client Ten', logo: '/images/clients/client-10.png' },
+  { name: 'Shapoorji Pallonji Co.' },
+  { name: 'DLF Commercial Assets' },
+  { name: 'Brigade Group Infra' },
+  { name: 'Sobha Engineering Works' },
+  { name: 'Hiranandani Communities' },
 ];
 
 function LogoItem({ name }) {
-    // Placeholder chip standing in for a real logo image.
-    // Swap this whole block for: <img src={logo} alt={name} className="h-8 w-auto object-contain opacity-70" />
-    return (
-        <div className="flex h-12 shrink-0 items-center px-10">
-            <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-[#6B7780]">
-                {name}
-            </span>
-        </div>
-    );
+  return (
+    <div className="flex h-12 shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-white/85 backdrop-blur-md px-8 transition-all duration-300 hover:border-[#2563EB]/60 hover:bg-blue-50/60 shadow-sm cursor-default">
+      <span className="whitespace-nowrap text-xs font-bold tracking-widest text-slate-700 hover:text-[#2563EB] uppercase font-mono transition-colors">
+        {name}
+      </span>
+    </div>
+  );
 }
 
-function MarqueeRow({ items, direction = 'left', duration = 28 }) {
-    const doubled = [...items, ...items];
-
-    return (
-        <div className="relative w-full overflow-hidden">
-            <motion.div
-                className="flex w-max"
-                animate={{ x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
-                transition={{ duration, repeat: Infinity, ease: 'linear' }}
-            >
-                {doubled.map((item, i) => (
-                    <LogoItem key={`${item.name}-${i}`} name={item.name} />
-                ))}
-            </motion.div>
-
-            {/* Edge fade so logos don't hard-cut at the container edges */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent" />
-        </div>
-    );
+function MarqueeRow({ items, direction = 'left', duration = 30 }) {
+  const doubled = [...items, ...items, ...items];
+  return (
+    <div className="relative w-full overflow-hidden py-1.5">
+      <motion.div
+        className="flex w-max gap-5"
+        animate={{ x: direction === 'left' ? ['0%', '-33.333%'] : ['-33.333%', '0%'] }}
+        transition={{ duration, repeat: Infinity, ease: 'linear' }}
+      >
+        {doubled.map((item, i) => (
+          <LogoItem key={`${item.name}-${i}`} name={item.name} />
+        ))}
+      </motion.div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#F8F9FA]/75 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#F8F9FA]/75 to-transparent z-10" />
+    </div>
+  );
 }
 
 export default function TrustedBy() {
-    return (
-        <section className="w-full bg-white py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl px-6 lg:px-10 overflow-hidden">
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="mb-12 text-center sm:mb-16"
-                >
-                    <h2 className="text-3xl font-semibold leading-[1.2] tracking-tight text-[#11161A] sm:text-4xl">
-                        Trusted by high-performing brands in hospitality and F&amp;B
-                    </h2>
-                </motion.div>
-                 <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                className="flex flex-col gap-6"
-            >
-                <MarqueeRow items={rowOne} direction="left" duration={30} />
-                <MarqueeRow items={rowTwo} direction="right" duration={34} />
-            </motion.div>
-            </div>
+  return (
+    <section
+      data-home-chapter="trusted"
+      className="relative w-full home-section-light py-24 sm:py-32 overflow-hidden z-10 border-t border-slate-200/45"
+    >
+      <div className="mx-auto max-w-[1600px] px-6 lg:px-12 xl:px-16">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 max-w-3xl home-content-panel rounded-2xl p-8 sm:p-10"
+        >
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1">
+            <span className="home-editorial-tag text-[#2563EB]">Industry Partners</span>
+          </div>
+          <h2 className="home-h2 text-slate-900">
+            Trusted by leading developers and enterprises across infrastructure &amp; industry.
+          </h2>
+        </motion.div>
 
-           
-        </section>
-    );
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.12 }}
+          className="flex flex-col gap-6"
+        >
+          <MarqueeRow items={rowOne} direction="left" duration={32} />
+          <MarqueeRow items={rowTwo} direction="right" duration={36} />
+        </motion.div>
+      </div>
+    </section>
+  );
 }

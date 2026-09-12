@@ -1,65 +1,96 @@
 'use client';
 
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FiArrowRight, FiSend } from 'react-icons/fi';
 
 export default function CTA() {
+  const sectionRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end end'],
+  });
+  const buildX = useTransform(scrollYProgress, [0, 1], ['-3%', '3%']);
+  const giantScale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+
+  useEffect(() => {
+    const h = (e) => {
+      const rect = sectionRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      setMousePos({
+        x: ((e.clientX - rect.left) / rect.width - 0.5) * 22,
+        y: ((e.clientY - rect.top) / rect.height - 0.5) * 22,
+      });
+    };
+    window.addEventListener('mousemove', h);
+    return () => window.removeEventListener('mousemove', h);
+  }, []);
+
   return (
-    <section className="relative w-full overflow-hidden bg-[#11161A] border-b border-[#ffffe4]/10 py-16 sm:py-20">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop"
-          alt="Architectural structure"
-          className="h-full w-full object-cover opacity-25"
-        />
-        {/* Subtle gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#11161A]/95 via-[#11161A]/90 to-[#11161A]" />
+    <section
+      ref={sectionRef}
+      data-home-chapter="cta"
+      className="relative w-full min-h-[85vh] home-section-light overflow-hidden py-28 sm:py-40 z-10 flex items-center border-t border-[#E2DBCE]/60"
+    >
+      {/* Complete background sentence visible in one go - Distinct Animation 6: Monumental Elevation Rise */}
+      <div className="absolute inset-x-0 top-[8%] pointer-events-none select-none z-0 overflow-hidden px-2">
+        <div className="home-bg-banner-line home-anim-rise-bounded">
+          <span className="home-bg-text-full home-bg-size-md sm:home-bg-size-lg bg-gradient-to-r from-blue-700 via-indigo-700 to-amber-600 bg-clip-text text-transparent opacity-90 tracking-wide">
+            COLLABORATE &bull; BUILD &bull; DELIVER
+          </span>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center text-center"
-        >
-          <div className="mb-6 flex items-center gap-3">
-            <span className="h-px w-8 bg-[#3E7CB1]" />
-            <span className="text-[13px] font-medium text-white/50">Get Started</span>
-            <span className="h-px w-8 bg-[#3E7CB1]" />
+      <div className="relative z-10 mx-auto max-w-[1600px] px-6 lg:px-12 xl:px-16 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end home-content-panel rounded-3xl p-8 sm:p-14 xl:p-20 shadow-2xl">
+
+          {/* Left: CTA headline */}
+          <div className="lg:col-span-7">
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/75 bg-white/40 backdrop-blur-md px-5 py-2 shadow-sm">
+              <span className="h-px w-4 bg-[#2563EB]" />
+              <span className="home-editorial-tag text-[#2563EB]">Get Started</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold uppercase leading-[1.04] tracking-tight text-[#1C1917] max-w-4xl">
+              Ready to build your next project?
+            </h2>
           </div>
 
-          <h2 className="max-w-3xl text-4xl font-semibold uppercase leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Ready to build your next project?
-          </h2>
+          {/* Right: Description + CTA */}
+          <div className="lg:col-span-5 flex flex-col items-start lg:items-end lg:text-right">
+            <p className="text-base sm:text-lg font-light leading-relaxed text-[#57534E] max-w-sm lg:ml-auto">
+              Let&apos;s discuss your engineering and design requirements.
+            </p>
 
-          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/60 sm:text-base">
-            Let&apos;s discuss your engineering and design requirements.
-          </p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="mt-10"
-          >
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[14px] font-medium text-[#11161A] transition-colors duration-200 hover:bg-white/90"
+            <motion.div
+              style={{ transform: `translate(${mousePos.x * 0.14}px, ${mousePos.y * 0.14}px)` }}
+              className="mt-10"
             >
-              Get in Touch
-              <FiArrowRight
-                size={16}
-                className="transition-transform duration-200 group-hover:translate-x-1"
-              />
-            </Link>
-          </motion.div>
-        </motion.div>
+              <Link
+                href="/contact"
+                className="home-magnetic group inline-flex items-center gap-3 rounded-full bg-[#2563EB] px-10 py-5 text-base font-bold text-white hover:bg-blue-700 hover:shadow-[0_0_30px_rgba(37,99,235,0.45)] transition-all"
+              >
+                <FiSend size={17} className="group-hover:-translate-y-0.5 transition-transform" />
+                Get in Touch
+                <FiArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+
+            {/* Discipline disciplines confirmation strip */}
+            <div className="mt-12 flex flex-wrap gap-2 lg:justify-end">
+              {['Civil', 'Architecture', 'Mechanical'].map(d => (
+                <span
+                  key={d}
+                  className="home-editorial-tag text-[#78716C] border border-white/70 rounded-full px-3 py-1 bg-white/35 backdrop-blur-md"
+                >
+                  {d}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

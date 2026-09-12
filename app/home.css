@@ -1,0 +1,411 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SAK Engineering — Cinematic Editorial Design System
+   Premium light architectural visual language
+═══════════════════════════════════════════════════════════════════ */
+
+/* ─── TYPOGRAPHY SCALE ─────────────────────────────────────────── */
+
+/* Oversized background discipline word (CIVIL / ARCHITECTURE / MECHANICAL / PROJECTS / BUILD) */
+.home-giant-word {
+  font-size: clamp(6rem, 25vw, 20rem);
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  font-weight: 950;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.12));
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Editorial chapter number & secondary display */
+.home-display-word {
+  font-size: clamp(3.5rem, 13vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  font-weight: 950;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Huge stat numerals (scaled down 30%) */
+.home-stat-giant {
+  font-size: clamp(2.8rem, 9.8vw, 7.7rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-weight: 950;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Section heading */
+.home-h2 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #1c1917;
+}
+
+/* ─── SECTION SURFACES (LIGHT CREAMISH THEME) ──────────────────── */
+
+/* All sections are transparent — 3D scene shows continuously */
+.home-section-dark,
+.home-section-light {
+  background: transparent !important;
+  color: #1c1917;
+}
+
+/* ─── LUXURY CREAM FROSTED GLASS HUD PANELS (GLASSMORPHISM) ────── */
+
+.home-content-panel {
+  background: rgba(253, 250, 245, 0.38);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 20px 50px -10px rgba(44, 38, 30, 0.05),
+    0 4px 16px -2px rgba(44, 38, 30, 0.03),
+    0 1px 1px 0 rgba(255, 255, 255, 0.9) inset;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-content-panel:hover {
+  background: rgba(253, 250, 245, 0.52);
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow:
+    0 28px 65px -10px rgba(37, 99, 235, 0.12),
+    0 8px 24px -4px rgba(44, 38, 30, 0.05),
+    0 1px 1px 0 rgba(255, 255, 255, 1) inset;
+}
+
+/* Ultra-minimal floating label (transparent glass) */
+.home-float-panel {
+  background: rgba(253, 250, 245, 0.35);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 20px rgba(44, 38, 30, 0.04), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+/* Universal transparent glassmorphism tile utility */
+.home-glass-tile {
+  background: rgba(253, 250, 245, 0.35) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 8px 32px 0 rgba(44, 38, 30, 0.04), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset !important;
+}
+
+/* ─── HERO GRADIENT SCRIM (WARM CREAM) ─────────────────────────── */
+
+.home-hero-scrim {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(249, 246, 240, 0.15) 0%,
+    rgba(249, 246, 240, 0.65) 55%,
+    rgba(249, 246, 240, 0.96) 100%
+  );
+}
+
+/* ─── EDITORIAL TAGS ───────────────────────────────────────────── */
+
+.home-editorial-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Engineering rule divider: ─── SECTION LABEL ─── */
+.home-rule-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+.home-rule-label::before,
+.home-rule-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.35), transparent);
+}
+
+/* Process step engineering pipeline */
+.home-process-line {
+  width: 1px;
+  background: linear-gradient(to bottom, #2563eb, #7dd3fc, #0284c7);
+}
+
+/* Large editorial arrow */
+.home-arrow {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* ─── INTERACTION ──────────────────────────────────────────────── */
+
+.home-magnetic {
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+}
+.home-magnetic:hover {
+  transform: scale(1.04);
+}
+
+/* ─── DISCIPLINE LABELS (floating over 3D) ─────────────────────── */
+
+.home-discipline-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.home-discipline-label::before {
+  content: '';
+  display: inline-block;
+  width: 1.25rem;
+  height: 1px;
+  background: #2563eb;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-magnetic:hover { transform: none; }
+}
+
+/* ─── FOOTER FIX ───────────────────────────────────────────────── */
+
+/* Hide duplicate outer root layout footer on homepage */
+body:has(#home-experience) > footer {
+  display: none !important;
+}
+
+/* ─── HEADER READABILITY ON DAYLIGHT 3D ────────────────────────── */
+
+/* Ensure header nav links remain crisp and legible against daylight 3D background */
+header nav button,
+header nav a {
+  color: #1f2937 !important;
+}
+
+header nav button:hover,
+header nav a:hover {
+  color: #2563eb !important;
+}
+
+header button[aria-label="Toggle menu"] {
+  color: #1f2937 !important;
+}
+
+/* ─── CONTINUOUS BACKGROUND TEXT TICKER ANIMATION ──────────────── */
+
+@keyframes home-ticker-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes home-ticker-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.home-ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.home-ticker-track-left {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: home-ticker-left 32s linear infinite;
+}
+
+.home-ticker-track-right {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: home-ticker-right 32s linear infinite;
+}
+
+.home-ticker-track-fast {
+  animation-duration: 22s;
+}
+
+.home-ticker-track-slow {
+  animation-duration: 45s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-ticker-track-left,
+  .home-ticker-track-right,
+  .home-anim-float,
+  .home-anim-piston,
+  .home-anim-swell,
+  .home-anim-accordion {
+    animation-play-state: paused !important;
+  }
+}
+
+/* ─── FULL-WIDTH SINGLE-LINE BACKGROUND BANNER CLASSES ───────────── */
+
+/* Full-width container ensuring 100% visibility in one go without clipping */
+.home-bg-banner-line {
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.home-bg-text-full {
+  font-family: inherit;
+  font-weight: 950;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.10));
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.45);
+}
+
+/* Precise responsive sizes that guarantee the whole sentence fits in 1 line */
+.home-bg-size-xl {
+  font-size: clamp(1.7rem, 6.2vw, 6.4rem);
+}
+
+.home-bg-size-lg {
+  font-size: clamp(1.4rem, 4.8vw, 5.2rem);
+}
+
+.home-bg-size-md {
+  font-size: clamp(1.2rem, 3.9vw, 4.3rem);
+}
+
+/* ─── DISTINCT SECTION-SPECIFIC IN-PLACE ANIMATIONS ─────────────── */
+
+/* 1. About: Kinetic Floating 3D Levitation Wave */
+@keyframes home-anim-wave {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(0.6deg);
+  }
+}
+.home-anim-wave {
+  will-change: transform;
+  animation: home-anim-wave 9s ease-in-out infinite;
+}
+
+/* 2. Services: Mechanical Shimmer Stroke (In-Place) */
+@keyframes home-piston-stroke-bounded {
+  0%, 100% {
+    transform: skewX(-1.5deg) scaleX(0.99);
+    filter: brightness(1);
+  }
+  50% {
+    transform: skewX(1.5deg) scaleX(1.01);
+    filter: brightness(1.15);
+  }
+}
+.home-anim-piston-stroke-bounded {
+  will-change: transform, filter;
+  animation: home-piston-stroke-bounded 10s ease-in-out infinite;
+}
+
+/* 3. Stats: Majestic Radial Scale Swell (In-Place) */
+@keyframes home-scale-swell-bounded {
+  0%, 100% {
+    transform: scale(0.97) translateY(-4px);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.03) translateY(4px);
+    opacity: 0.98;
+  }
+}
+.home-anim-swell-bounded {
+  will-change: transform, opacity;
+  animation: home-scale-swell-bounded 8s ease-in-out infinite;
+}
+
+/* 4. Projects: Panoramic Chroma Sway (In-Place) */
+@keyframes home-chroma-sway {
+  0%, 100% {
+    transform: translateY(0px) scale(0.985);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.015);
+  }
+}
+.home-anim-chroma-sway {
+  will-change: transform;
+  animation: home-chroma-sway 11s ease-in-out infinite;
+}
+
+/* 5. Process: Rhythmic Accordion Letter Expansion (In-Place) */
+@keyframes home-accordion-bounded {
+  0%, 100% {
+    letter-spacing: 0.05em;
+    transform: scale(0.985);
+  }
+  50% {
+    letter-spacing: 0.12em;
+    transform: scale(1.015);
+  }
+}
+.home-anim-accordion-bounded {
+  will-change: letter-spacing, transform;
+  animation: home-accordion-bounded 10s ease-in-out infinite;
+}
+
+/* 6. CTA: Monumental Elevation Rise (In-Place) */
+@keyframes home-rise-bounded {
+  0%, 100% {
+    transform: translateY(12px) scale(0.98);
+  }
+  50% {
+    transform: translateY(-16px) scale(1.025);
+  }
+}
+.home-anim-rise-bounded {
+  will-change: transform;
+  animation: home-rise-bounded 9s ease-in-out infinite;
+}
