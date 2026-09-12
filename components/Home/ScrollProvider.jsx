@@ -22,23 +22,45 @@ export default function ScrollProvider({ children }) {
   const [introComplete, setIntroComplete] = useState(false);
   const lenisRef = useRef(null);
 
-  // Safety: never leave hero copy permanently hidden if 3D intro fails
+  // Safety fallback for intro
   useEffect(() => {
-    const fallback = setTimeout(() => setIntroComplete(true), 5000);
+    const fallback = setTimeout(() => setIntroComplete(true), 2500);
     return () => clearTimeout(fallback);
   }, []);
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       touchMultiplier: 1.8,
     });
     lenisRef.current = lenis;
 
-    lenis.on('scroll', ScrollTrigger.update);
+    const updateScroll = (prog) => {
+      const p = Math.max(0, Math.min(1, prog));
+      setScrollProgress(p);
+      document.documentElement.style.setProperty('--home-scroll', String(p));
+    };
 
+    // 1. Lenis scroll event
+    lenis.on('scroll', (e) => {
+      ScrollTrigger.update();
+      if (typeof e.progress === 'number') {
+        updateScroll(e.progress);
+      }
+    });
+
+    // 2. Direct window scroll listener (ensures headless and standard scroll works seamlessly)
+    const handleNativeScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max > 0) {
+        updateScroll(window.scrollY / max);
+      }
+    };
+    window.addEventListener('scroll', handleNativeScroll, { passive: true });
+
+    // GSAP Ticker for smooth Lenis RAF
     const ticker = (time) => lenis.raf(time * 1000);
     gsap.ticker.add(ticker);
     gsap.ticker.lagSmoothing(0);
@@ -66,19 +88,22 @@ export default function ScrollProvider({ children }) {
       start: 'top top',
       end: 'bottom bottom',
       onUpdate: (self) => {
-        setScrollProgress(self.progress);
-        document.documentElement.style.setProperty(
-          '--home-scroll',
-          String(self.progress)
-        );
+        updateScroll(self.progress);
       },
     });
 
-    const onRefresh = () => lenis.resize();
+    const onRefresh = () => {
+      lenis.resize();
+      handleNativeScroll();
+    };
     ScrollTrigger.addEventListener('refresh', onRefresh);
     ScrollTrigger.refresh();
 
+    // Initial check
+    handleNativeScroll();
+
     return () => {
+      window.removeEventListener('scroll', handleNativeScroll);
       masterTrigger.kill();
       ScrollTrigger.getAll().forEach((t) => t.kill());
       ScrollTrigger.removeEventListener('refresh', onRefresh);

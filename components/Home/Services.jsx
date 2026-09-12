@@ -3,162 +3,211 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FiArrowRight, FiCompass, FiCpu } from 'react-icons/fi';
+import { FiArrowRight, FiCheckCircle, FiCompass, FiCpu, FiLayers } from 'react-icons/fi';
 
-const services = [
-  {
-    number: '01',
-    icon: FiCompass,
-    giantWord: 'CIVIL',
-    title: 'Civil & Architectural Services',
-    items: [
-      'Building & Infrastructure',
-      'RCC Structural Design',
-      'Steel Structural Design',
-      'BIM & Site Layouts',
-      '3D Elevation & Interior Design',
-    ],
-    href: '/services/civil-architectural',
-    highlightTag: 'Structural & Spatial',
-    accentColor: '#2563EB',
-  },
-  {
-    number: '02',
-    icon: FiCpu,
-    giantWord: 'MECHANICAL',
-    title: 'Mechanical Engineering Services',
-    items: [
-      'Industrial Equipment Design',
-      'Automobile Design',
-      'Manufacturing Drawings',
-      'Analysis & Simulation',
-      'REVIT MEP Design',
-    ],
-    href: '/services/mechanical-engineering',
-    highlightTag: 'MEP & Equipment',
-    accentColor: '#2563EB',
-  },
+const civilServices = [
+  'Building & Infrastructure',
+  'RCC Structural Design',
+  'Steel Structural Design',
+  'BIM & Site Layouts',
+  '3D Elevation & Interior Design',
 ];
 
-function ServiceSequence({ service, index }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const wordX = useTransform(scrollYProgress, [0, 1],
-    [index % 2 === 0 ? '-4%' : '4%', index % 2 === 0 ? '4%' : '-4%']);
-  const Icon = service.icon;
-
-  return (
-    <div
-      ref={ref}
-      data-home-chapter={`services-${index}`}
-      className="relative min-h-screen flex items-center py-28 sm:py-36 overflow-hidden border-t border-[#E2DBCE]/60 home-section-light"
-    >
-      {/* Complete background sentence visible in one go - Distinct Animation 2: Mechanical Shimmer Stroke */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0 overflow-hidden px-2">
-        <div
-          className="home-bg-banner-line home-anim-piston-stroke-bounded"
-          style={{ animationDirection: index % 2 === 0 ? 'normal' : 'reverse' }}
-        >
-          <span
-            className={`home-bg-text-full home-bg-size-md sm:home-bg-size-lg ${
-              index === 0
-                ? 'bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-600'
-                : 'bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600'
-            } bg-clip-text text-transparent opacity-90 tracking-wide`}
-          >
-            {index === 0 ? 'CIVIL & ARCHITECTURAL ENGINEERING' : 'PRECISION MECHANICAL & MEP SYSTEMS'}
-          </span>
-        </div>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-[1600px] px-6 lg:px-12 xl:px-16 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          {/* Service header panel */}
-          <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:col-start-9' : ''} home-content-panel rounded-2xl p-8 sm:p-10 shadow-xl flex flex-col justify-between`}>
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-200 bg-blue-50 text-[#2563EB]">
-                  <Icon size={20} />
-                </div>
-                <span className="home-editorial-tag text-[#2563EB] border border-[#E2DBCE] rounded-full px-3 py-1 bg-[#FBF9F5]/90">
-                  {service.highlightTag}
-                </span>
-                <span className="ml-auto text-xl font-mono font-bold text-slate-400/70">{service.number}</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-bold leading-snug tracking-tight text-[#1C1917]">
-                {service.title}
-              </h3>
-            </div>
-
-            <div className="mt-8 flex items-center gap-3">
-              <span className="home-arrow text-[#2563EB]/30">→</span>
-              <Link
-                href={service.href}
-                className="home-magnetic inline-flex items-center gap-2.5 rounded-full px-7 py-3 text-sm font-semibold border border-[#E2DBCE] bg-[#FBF9F5]/95 text-[#1C1917] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] shadow-sm transition-all"
-              >
-                Explore
-                <FiArrowRight size={15} />
-              </Link>
-            </div>
-          </div>
-
-          {/* Service items list */}
-          <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-6'} home-content-panel rounded-2xl p-8 sm:p-10 shadow-xl`}>
-            <ul className="flex flex-col divide-y divide-[#E2DBCE]/60">
-              {service.items.map((item, i) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? 24 : -24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07, duration: 0.6 }}
-                  className="flex items-center justify-between gap-6 py-5"
-                >
-                  <div className="flex items-center gap-5">
-                    <span className="home-editorial-tag text-[#2563EB]/80 w-7 shrink-0">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-base sm:text-lg font-medium text-[#1C1917]">{item}</span>
-                  </div>
-                  <span className="text-slate-400 text-lg shrink-0">→</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+const mechanicalServices = [
+  'Industrial Equipment Design',
+  'Automobile Design',
+  'Manufacturing Drawings',
+  'Analysis & Simulation',
+  'REVIT MEP Design',
+];
 
 export default function Services() {
+  const containerRef = useRef(null);
+  const civilRef = useRef(null);
+  const mechRef = useRef(null);
+  const integRef = useRef(null);
+
+  const { scrollYProgress: civilProgress } = useScroll({
+    target: civilRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const { scrollYProgress: mechProgress } = useScroll({
+    target: mechRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const { scrollYProgress: integProgress } = useScroll({
+    target: integRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const civilY = useTransform(civilProgress, [0, 1], [30, -30]);
+  const civilOpacity = useTransform(civilProgress, [0.08, 0.25, 0.75, 0.92], [0, 1, 1, 0]);
+
+  const mechY = useTransform(mechProgress, [0, 1], [30, -30]);
+  const mechOpacity = useTransform(mechProgress, [0.08, 0.25, 0.75, 0.92], [0, 1, 1, 0]);
+
+  const integY = useTransform(integProgress, [0, 1], [30, -30]);
+  const integOpacity = useTransform(integProgress, [0.08, 0.25, 0.75, 0.92], [0, 1, 1, 0]);
+
   return (
-    <section data-home-chapter="services" className="relative z-10">
-      {/* Section introduction */}
-      <div className="relative py-20 sm:py-28 home-section-light border-t border-[#E2DBCE]/60">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-12 xl:px-16">
+    <div ref={containerRef} className="relative w-full z-10">
+      {/* ── CHAPTER 03: Civil & Structural Engineering ───────────────────────── */}
+      <section
+        ref={civilRef}
+        data-home-chapter="services-civil"
+        className="relative w-full min-h-[115vh] flex items-center pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden"
+      >
+        <div className="relative z-10 mx-auto max-w-[1540px] px-6 lg:px-12 xl:px-16 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl home-content-panel rounded-2xl p-8 sm:p-12"
+            style={{ y: civilY, opacity: civilOpacity }}
+            className="max-w-2xl bg-[#FFFDF8]/85 backdrop-blur-xl border border-[#D8C08A]/40 rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_50px_rgba(41,39,34,0.06)]"
           >
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#2563EB]" />
-              <span className="home-editorial-tag text-[#2563EB]">Our Services</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-2 w-2 rounded-full bg-[#C6A15B] animate-pulse" />
+              <span className="font-mono text-[11px] font-bold tracking-[0.25em] uppercase text-[#9F7B35]">
+                SCENE 03 // CIVIL & STRUCTURAL ENGINEERING
+              </span>
             </div>
-            <h2 className="home-h2 text-[#1C1917]">
-              Two disciplines, one integrated approach.
+
+            <div className="flex items-center gap-3 mb-2">
+              <FiCompass className="text-[#9F7B35]" size={24} />
+              <span className="font-mono text-xs uppercase tracking-widest text-[#77736B] font-semibold">
+                Structural Framework
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#292722] leading-[1.12] mb-6">
+              Civil &amp; Architectural Services
             </h2>
+
+            <p className="text-sm sm:text-base text-[#77736B] font-medium leading-relaxed mb-6">
+              The physical skeleton beneath the architectural skin. Precision structural engineering designed for permanence, safety, and architectural elegance.
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              {civilServices.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-[#292722] font-semibold text-sm sm:text-base">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#C6A15B]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/services/civil-architectural"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#292722] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#C6A15B] hover:text-[#292722] transition-all duration-200"
+            >
+              Explore Civil Solutions
+              <FiArrowRight size={15} />
+            </Link>
           </motion.div>
         </div>
-      </div>
+      </section>
 
-      {services.map((service, index) => (
-        <ServiceSequence key={service.title} service={service} index={index} />
-      ))}
-    </section>
+      {/* ── CHAPTER 04: Mechanical Systems & MEP ─────────────────────────────── */}
+      <section
+        ref={mechRef}
+        data-home-chapter="services-mechanical"
+        className="relative w-full min-h-[115vh] flex items-center justify-end pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden"
+      >
+        <div className="relative z-10 mx-auto max-w-[1540px] px-6 lg:px-12 xl:px-16 w-full flex justify-end">
+          <motion.div
+            style={{ y: mechY, opacity: mechOpacity }}
+            className="max-w-2xl bg-[#FFFDF8]/85 backdrop-blur-xl border border-[#D8C08A]/40 rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_50px_rgba(41,39,34,0.06)]"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-2 w-2 rounded-full bg-[#C6A15B] animate-pulse" />
+              <span className="font-mono text-[11px] font-bold tracking-[0.25em] uppercase text-[#9F7B35]">
+                SCENE 04 // MECHANICAL ENGINEERING &amp; MEP
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3 mb-2">
+              <FiCpu className="text-[#9F7B35]" size={24} />
+              <span className="font-mono text-xs uppercase tracking-widest text-[#77736B] font-semibold">
+                Building Anatomy &amp; Systems
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#292722] leading-[1.12] mb-6">
+              Mechanical Engineering Services
+            </h2>
+
+            <p className="text-sm sm:text-base text-[#77736B] font-medium leading-relaxed mb-6">
+              The internal circulatory arteries that give life to architecture. High-efficiency HVAC, process piping, electrical infrastructure, and industrial mechanical systems.
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              {mechanicalServices.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-[#292722] font-semibold text-sm sm:text-base">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#C6A15B]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/services/mechanical-engineering"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#292722] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#C6A15B] hover:text-[#292722] transition-all duration-200"
+            >
+              Explore Mechanical Solutions
+              <FiArrowRight size={15} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CHAPTER 05: The Synthesis Climax (Integrated Engineering) ───────── */}
+      <section
+        ref={integRef}
+        data-home-chapter="services-integration"
+        className="relative w-full min-h-[115vh] flex items-center pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden"
+      >
+        <div className="relative z-10 mx-auto max-w-[1540px] px-6 lg:px-12 xl:px-16 w-full">
+          <motion.div
+            style={{ y: integY, opacity: integOpacity }}
+            className="max-w-2xl bg-[#FFFDF8]/85 backdrop-blur-xl border border-[#D8C08A]/40 rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_50px_rgba(41,39,34,0.06)]"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-2 w-2 rounded-full bg-[#C6A15B] animate-pulse" />
+              <span className="font-mono text-[11px] font-bold tracking-[0.25em] uppercase text-[#9F7B35]">
+                SCENE 05 // THE INTEGRATION CLIMAX
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3 mb-2">
+              <FiLayers className="text-[#9F7B35]" size={24} />
+              <span className="font-mono text-xs uppercase tracking-widest text-[#77736B] font-semibold">
+                Multi-Disciplinary Synthesis
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#292722] leading-[1.12] mb-6">
+              Civil · Architecture · Mechanical
+            </h2>
+
+            <p className="text-base sm:text-lg text-[#77736B] font-medium leading-relaxed mb-6">
+              When structural integrity, architectural form, and mechanical precision synchronize seamlessly, buildings don&apos;t just stand — they perform at their highest potential.
+            </p>
+
+            <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-[#F6F1E7]/80 border border-[#D8C08A]/40 mb-8 font-mono text-xs text-center font-bold text-[#292722]">
+              <div className="p-2 bg-[#FFFDF8] rounded-lg shadow-xs border border-[#D8C08A]/20">CIVIL</div>
+              <div className="p-2 bg-[#FFFDF8] rounded-lg shadow-xs border border-[#D8C08A]/20">ARCHITECTURE</div>
+              <div className="p-2 bg-[#FFFDF8] rounded-lg shadow-xs border border-[#D8C08A]/20">MECHANICAL</div>
+            </div>
+
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#C6A15B] hover:bg-[#B8934D] px-7 py-3.5 text-xs sm:text-sm font-bold text-[#292722] shadow-[0_8px_24px_rgba(198,161,91,0.28)] hover:shadow-[0_12px_32px_rgba(198,161,91,0.45)] hover:scale-[1.03] transition-all duration-200"
+            >
+              Discover Integrated Delivery
+              <FiArrowRight size={15} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

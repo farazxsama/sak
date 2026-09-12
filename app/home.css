@@ -1,7 +1,41 @@
 /* ═══════════════════════════════════════════════════════════════════
-   SAK Engineering — Cinematic Editorial Design System
-   Premium light architectural visual language
+   SAK Engineering — Cinematic Architectural Editorial Design System
+   Premium completed-building visual language
+   Photorealistic sky · moving clouds · luxury architecture
 ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── CINEMATIC HERO SCENE ──────────────────────────────────────── */
+
+/* The fixed cinematic canvas sits behind all content */
+#home-experience {
+  background: transparent;
+}
+
+/* Ken Burns image layers — GPU accelerated */
+.sak-scene-img {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Cloud animation override — ensure smooth infinite drift */
+.sak-cloud-layer {
+  will-change: transform;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+/* Atmospheric sky gradient utility */
+.sak-sky-gradient {
+  background: linear-gradient(
+    to bottom,
+    #c8def3 0%,
+    #dcecf8 22%,
+    #ebf3f9 45%,
+    #f6f1e7 100%
+  );
+}
 
 /* ─── TYPOGRAPHY SCALE ─────────────────────────────────────────── */
 
@@ -72,9 +106,9 @@
 
 .home-content-panel:hover {
   background: rgba(253, 250, 245, 0.52);
-  border-color: rgba(37, 99, 235, 0.45);
+  border-color: rgba(198, 161, 91, 0.45);
   box-shadow:
-    0 28px 65px -10px rgba(37, 99, 235, 0.12),
+    0 28px 65px -10px rgba(198, 161, 91, 0.12),
     0 8px 24px -4px rgba(44, 38, 30, 0.05),
     0 1px 1px 0 rgba(255, 255, 255, 1) inset;
 }
@@ -127,20 +161,20 @@
   font-size: 0.6rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #6b7280;
+  color: #77736B;
 }
 .home-rule-label::before,
 .home-rule-label::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.4), transparent);
 }
 
 /* Process step engineering pipeline */
 .home-process-line {
   width: 1px;
-  background: linear-gradient(to bottom, #2563eb, #7dd3fc, #0284c7);
+  background: linear-gradient(to bottom, #9F7B35, #C6A15B, #D8C08A);
 }
 
 /* Large editorial arrow */
@@ -167,7 +201,7 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #2563eb;
+  color: #9F7B35;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -177,7 +211,7 @@
   display: inline-block;
   width: 1.25rem;
   height: 1px;
-  background: #2563eb;
+  background: #C6A15B;
 }
 
 /* ─── RESPONSIVE ───────────────────────────────────────────────── */
@@ -186,28 +220,21 @@
   .home-magnetic:hover { transform: none; }
 }
 
-/* ─── FOOTER FIX ───────────────────────────────────────────────── */
+/* ─── HEADER READABILITY ON CREAM & DAYLIGHT 3D ────────────────── */
 
-/* Hide duplicate outer root layout footer on homepage */
-body:has(#home-experience) > footer {
-  display: none !important;
-}
-
-/* ─── HEADER READABILITY ON DAYLIGHT 3D ────────────────────────── */
-
-/* Ensure header nav links remain crisp and legible against daylight 3D background */
+/* Ensure header nav links remain crisp and legible in warm graphite */
 header nav button,
 header nav a {
-  color: #1f2937 !important;
+  color: #292722 !important;
 }
 
 header nav button:hover,
 header nav a:hover {
-  color: #2563eb !important;
+  color: #C6A15B !important;
 }
 
 header button[aria-label="Toggle menu"] {
-  color: #1f2937 !important;
+  color: #292722 !important;
 }
 
 /* ─── CONTINUOUS BACKGROUND TEXT TICKER ANIMATION ──────────────── */

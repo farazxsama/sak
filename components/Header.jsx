@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 
@@ -24,6 +25,8 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -52,14 +55,18 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${
-        scrolled ? 'lg:top-4' : 'lg:top-0'
+        scrolled ? 'lg:top-4' : (isHome ? 'lg:top-3' : 'lg:top-0')
       }`}
     >
       <div
         className={`mx-auto flex h-20 items-center justify-between px-6 transition-all duration-500 ease-out lg:px-10 ${
-          scrolled
-            ? 'max-w-7xl border-b border-[#E9ECEE] bg-white lg:h-[68px] lg:max-w-5xl lg:rounded-full lg:border-none lg:bg-white lg:px-8 lg:shadow-[0_8px_30px_rgba(17,22,26,0.12)]'
-            : 'max-w-7xl border-b border-transparent bg-transparent'
+          isHome
+            ? (scrolled
+                ? 'max-w-7xl border-b border-[#D8C08A]/30 bg-[#FFFDF8]/90 backdrop-blur-md lg:h-[68px] lg:max-w-5xl lg:rounded-full lg:border border-[#D8C08A]/40 lg:bg-[#FFFDF8]/90 lg:px-8 lg:shadow-[0_8px_30px_rgba(41,39,34,0.06)]'
+                : 'max-w-7xl border-b border-[#D8C08A]/20 bg-[#FFFDF8]/70 backdrop-blur-md lg:h-[68px] lg:max-w-5xl lg:rounded-full lg:border border-[#D8C08A]/35 lg:bg-[#FFFDF8]/75 lg:px-8 lg:shadow-xs')
+            : (scrolled
+                ? 'max-w-7xl border-b border-[#E9ECEE] bg-white lg:h-[68px] lg:max-w-5xl lg:rounded-full lg:border-none lg:bg-white lg:px-8 lg:shadow-[0_8px_30px_rgba(17,22,26,0.12)]'
+                : 'max-w-7xl border-b border-transparent bg-transparent')
         }`}
       >
         {/* Logo */}
@@ -83,7 +90,9 @@ export default function Header() {
               >
                 <button
                   className={`flex items-center gap-1 text-[14.5px] font-medium transition-colors duration-300 ${
-                    isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
+                    isHome
+                      ? 'text-[#292722] hover:text-[#C6A15B]'
+                      : (isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white')
                   }`}
                 >
                   {link.label}
@@ -102,12 +111,20 @@ export default function Header() {
                       transition={{ duration: 0.18, ease: 'easeOut' }}
                       className="absolute left-0 top-full w-72 pt-3"
                     >
-                      <div className="overflow-hidden rounded-md border border-[#E9ECEE] bg-white shadow-lg shadow-black/5">
+                      <div className={`overflow-hidden rounded-xl shadow-lg ${
+                        isHome
+                          ? 'border border-[#D8C08A]/40 bg-[#FFFDF8] shadow-[0_12px_32px_rgba(41,39,34,0.08)]'
+                          : 'border border-[#E9ECEE] bg-white shadow-black/5'
+                      }`}>
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="block px-5 py-3.5 text-[14px] text-[#4B5860] transition-colors duration-150 hover:bg-[#F5F6F7] hover:text-[#11161A]"
+                            className={`block px-5 py-3.5 text-[14px] transition-colors duration-150 ${
+                              isHome
+                                ? 'text-[#292722] hover:bg-[#F6F1E7] hover:text-[#9F7B35]'
+                                : 'text-[#4B5860] hover:bg-[#F5F6F7] hover:text-[#11161A]'
+                            }`}
                           >
                             {child.label}
                           </Link>
@@ -122,7 +139,9 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`text-[14.5px] font-medium transition-colors duration-300 ${
-                  isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
+                  isHome
+                    ? 'text-[#292722] hover:text-[#C6A15B]'
+                    : (isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white')
                 }`}
               >
                 {link.label}
@@ -136,7 +155,7 @@ export default function Header() {
           aria-label="Toggle menu"
           onClick={() => setMobileOpen((v) => !v)}
           className={`-mr-2 p-2 transition-colors duration-300 lg:hidden ${
-            isDark ? 'text-[#11161A]' : 'text-white'
+            isHome ? 'text-[#292722]' : (isDark ? 'text-[#11161A]' : 'text-white')
           }`}
         >
           {mobileOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -151,7 +170,9 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-[#E9ECEE] bg-white lg:hidden"
+            className={`overflow-hidden lg:hidden ${
+              isHome ? 'border-t border-[#D8C08A]/30 bg-[#FFFDF8]' : 'border-t border-[#E9ECEE] bg-white'
+            }`}
           >
             <div className="flex flex-col gap-1 px-6 py-6">
               {navLinks.map((link) =>
@@ -159,7 +180,9 @@ export default function Header() {
                   <div key={link.label} className="flex flex-col">
                     <button
                       onClick={() => setMobileServicesOpen((v) => !v)}
-                      className="flex items-center justify-between border-b border-[#F5F6F7] py-3 text-[15px] font-medium text-[#1C2328]"
+                      className={`flex items-center justify-between py-3 text-[15px] font-medium ${
+                        isHome ? 'border-b border-[#D8C08A]/20 text-[#292722]' : 'border-b border-[#F5F6F7] text-[#1C2328]'
+                      }`}
                     >
                       {link.label}
                       <FiChevronDown
@@ -181,7 +204,9 @@ export default function Header() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setMobileOpen(false)}
-                              className="py-2.5 text-[14px] text-[#6B7780]"
+                              className={`py-2.5 text-[14px] ${
+                                isHome ? 'text-[#77736B] hover:text-[#9F7B35]' : 'text-[#6B7780]'
+                              }`}
                             >
                               {child.label}
                             </Link>
@@ -195,7 +220,11 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="border-b border-[#F5F6F7] py-3 text-[15px] font-medium text-[#1C2328] last:border-none"
+                    className={`py-3 text-[15px] font-medium last:border-none ${
+                      isHome
+                        ? 'border-b border-[#D8C08A]/20 text-[#292722] hover:text-[#C6A15B]'
+                        : 'border-b border-[#F5F6F7] text-[#1C2328]'
+                    }`}
                   >
                     {link.label}
                   </Link>

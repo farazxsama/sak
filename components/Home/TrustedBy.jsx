@@ -20,8 +20,8 @@ const rowTwo = [
 
 function LogoItem({ name }) {
   return (
-    <div className="flex h-12 shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-white/85 backdrop-blur-md px-8 transition-all duration-300 hover:border-[#2563EB]/60 hover:bg-blue-50/60 shadow-sm cursor-default">
-      <span className="whitespace-nowrap text-xs font-bold tracking-widest text-slate-700 hover:text-[#2563EB] uppercase font-mono transition-colors">
+    <div className="flex h-12 shrink-0 items-center justify-center rounded-xl border border-[#D8C08A]/30 bg-[#FFFDF8]/85 backdrop-blur-md px-8 transition-all duration-300 hover:border-[#C6A15B] hover:bg-[#F6F1E7]/70 shadow-xs cursor-default">
+      <span className="whitespace-nowrap text-xs font-bold tracking-widest text-[#292722] hover:text-[#9F7B35] uppercase font-mono transition-colors">
         {name}
       </span>
     </div>
@@ -41,8 +41,8 @@ function MarqueeRow({ items, direction = 'left', duration = 30 }) {
           <LogoItem key={`${item.name}-${i}`} name={item.name} />
         ))}
       </motion.div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#F8F9FA]/75 to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#F8F9FA]/75 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F6F1E7]/90 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F6F1E7]/90 to-transparent z-10" />
     </div>
   );
 }
@@ -51,34 +51,25 @@ export default function TrustedBy() {
   return (
     <section
       data-home-chapter="trusted"
-      className="relative w-full home-section-light py-24 sm:py-32 overflow-hidden z-10 border-t border-slate-200/45"
+      className="relative w-full py-20 sm:py-28 overflow-hidden z-10"
     >
-      <div className="mx-auto max-w-[1600px] px-6 lg:px-12 xl:px-16">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 max-w-3xl home-content-panel rounded-2xl p-8 sm:p-10"
-        >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1">
-            <span className="home-editorial-tag text-[#2563EB]">Industry Partners</span>
+      <div className="mx-auto max-w-[1540px] px-6 lg:px-12 xl:px-16">
+        <div className="mb-10 max-w-3xl bg-[#FFFDF8]/85 backdrop-blur-xl rounded-2xl p-8 border border-[#D8C08A]/40 shadow-xs">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="h-2 w-2 rounded-full bg-[#C6A15B] animate-pulse" />
+            <span className="font-mono text-[10px] font-bold tracking-[0.25em] uppercase text-[#9F7B35]">
+              TRUST &amp; PARTNERSHIPS
+            </span>
           </div>
-          <h2 className="home-h2 text-slate-900">
-            Trusted by leading developers and enterprises across infrastructure &amp; industry.
+          <h2 className="text-2xl sm:text-3xl font-black text-[#292722] tracking-tight leading-snug">
+            Trusted by high-performing brands in hospitality and F&amp;B
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0.12 }}
-          className="flex flex-col gap-6"
-        >
+        <div className="flex flex-col gap-4">
           <MarqueeRow items={rowOne} direction="left" duration={32} />
           <MarqueeRow items={rowTwo} direction="right" duration={36} />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

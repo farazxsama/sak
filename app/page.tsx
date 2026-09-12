@@ -15,7 +15,7 @@ export default function Home() {
     <ScrollProvider>
       <div
         id="home-experience"
-        className="relative min-h-screen text-white selection:bg-[#38BDF8] selection:text-[#080B0E] overflow-x-hidden"
+        className="relative min-h-screen text-[#292722] selection:bg-[#C6A15B] selection:text-[#292722] overflow-x-hidden"
       >
         <ExperienceCanvas />
 
