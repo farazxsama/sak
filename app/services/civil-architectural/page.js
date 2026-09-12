@@ -1,8 +1,19 @@
 import React from 'react'
+import PageBanner from "../../../components/Reusable/PageBanner"
+// import CivilArchitecturalServicesList from '../../../components/CivilArchitectural/CivilArchitecturalServicesList';
+import CivilArchitecturalSubServices from '../../../components/CivilArchitectural/CivilArchitecturalSubServices';
+import CTA from '../../../components/Home/CTA';
 
 const page = () => {
     return (
-        <div className='h-[100vh] flex justify-center items-center bg-black'>Civil Architecteral Page</div>
+        <>
+            <PageBanner
+                eyebrow="Civil & Architectural Services"
+                title="Structures engineered with precision. Spaces designed with intent."
+            />
+            <CivilArchitecturalSubServices/>
+            <CTA/>
+        </>
     )
 }
 
