@@ -1,10 +1,16 @@
 import React from 'react'
+import PageBanner from '../../components/Reusable/PageBanner';
+import ContactSection from '../../components/Contact/ContactSection';
 
 const page = () => {
     return (
-        <div className='h-[100vh] flex justify-center items-center bg-black'>
-            Contact Page
-        </div>
+        <>
+            <PageBanner
+                eyebrow="Contact Us"
+                title="Let's talk about your next project."
+            />
+            <ContactSection/>
+        </>
     )
 }
 

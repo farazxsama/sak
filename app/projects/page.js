@@ -1,6 +1,7 @@
 import React from 'react'
 import PageBanner from "../../components/Reusable/PageBanner"
 import ProjectsListing from '../../components/Projects/ProjectsListing';
+import CTA from '../../components/Home/CTA';
 
 const page = () => {
     return (
@@ -10,6 +11,7 @@ const page = () => {
                 title="Explore our portfolio of architectural, engineering and design projects."
             />
             <ProjectsListing/>
+            <CTA/>
         </>
     )
 }

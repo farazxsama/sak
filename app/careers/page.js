@@ -1,10 +1,21 @@
 import React from 'react'
+import PageBanner from '../../components/Reusable/PageBanner';
+import WhyWorkWithUs from '../../components/Careers/WhyWorkWithUs';
+import LifeAtSak from '../../components/Careers/LifeAtSak';
+import ApplicationForm from '../../components/Careers/ApplicationForm';
 
 const page = () => {
     return (
-        <div className='h-[100vh] flex justify-center items-center bg-black'>
-            Careers Page
-        </div>
+        <>
+            <PageBanner
+                eyebrow="Careers"
+                title="Build your career with a team that engineers with purpose."
+            />
+            <WhyWorkWithUs />
+            <LifeAtSak/>
+            <ApplicationForm/>
+
+        </>
     )
 }
 
