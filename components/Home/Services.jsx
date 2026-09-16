@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="w-full bg-[#11161A] py-16 sm:py-20">
+    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#ffffe4' }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Heading */}
         <motion.div
@@ -45,9 +45,14 @@ export default function Services() {
         >
           <div className="mb-5 flex items-center gap-3">
             <span className="h-px w-8 bg-[#3E7CB1]" />
-            <span className="text-[13px] font-medium text-white/50">Our Services</span>
+            <span className="text-[13px] font-medium" style={{ color: '#11161A99' }}>
+              Our Services
+            </span>
           </div>
-          <h2 className="text-3xl font-semibold leading-[1.2] tracking-tight text-white sm:text-4xl">
+          <h2
+            className="text-3xl font-semibold leading-[1.2] tracking-tight sm:text-4xl"
+            style={{ color: '#11161A' }}
+          >
             Two disciplines, one integrated approach.
           </h2>
         </motion.div>
@@ -61,18 +66,31 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
-              className="flex flex-col justify-between border border-white/10 p-8 sm:p-10"
+              className="flex flex-col justify-between p-8 sm:p-10"
+              style={{ border: '1px solid #11161A1a' }}
             >
               <div>
-                <span className="text-sm font-medium text-white/25">{service.number}</span>
+                <span
+                  className="text-sm font-medium"
+                  style={{ color: '#11161A33' }}
+                >
+                  {service.number}
+                </span>
 
-                <h3 className="mt-4 max-w-[15ch] text-2xl font-semibold leading-[1.25] tracking-tight text-white sm:text-[26px]">
+                <h3
+                  className="mt-4 max-w-[15ch] text-2xl font-semibold leading-[1.25] tracking-tight sm:text-[26px]"
+                  style={{ color: '#11161A' }}
+                >
                   {service.title}
                 </h3>
 
                 <ul className="mt-8 flex flex-col gap-3">
                   {service.items.map((item) => (
-                    <li key={item} className="flex items-baseline gap-3 text-[14.5px] text-white/60">
+                    <li
+                      key={item}
+                      className="flex items-baseline gap-3 text-[14.5px]"
+                      style={{ color: '#11161Ab3' }}
+                    >
                       <span className="text-[#3E7CB1]">–</span>
                       {item}
                     </li>
@@ -82,7 +100,8 @@ export default function Services() {
 
               <Link
                 href={service.href}
-                className="group mt-10 inline-flex w-fit items-center gap-2 text-[14px] font-medium text-white transition-colors duration-200 hover:text-white/70"
+                className="group mt-10 inline-flex w-fit items-center gap-2 text-[14px] font-medium transition-colors duration-200"
+                style={{ color: '#11161A' }}
               >
                 Explore Services
                 <FiArrowRight
