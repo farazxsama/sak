@@ -12,6 +12,8 @@ import Stats from "@/components/Home/Stats";
 import Process from "@/components/Home/Process";
 import CTA from "@/components/Home/CTA";
 
+import About from "@/components/Home/About";
+
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
      {/* 3d find statement */}
       {/* <Statement/> */}
       <BrandingSection/>
+
+      <About/>
 
       {/* <Services/> */}
       <Stats/>
@@ -37,7 +41,7 @@ export default function Home() {
 
      
       <TrustedBy/>
-      <Process/>
+      {/* <Process/> */}
       <CTA/>
     </>
   );

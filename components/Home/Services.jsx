@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#ffffe4' }}>
+    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Heading */}
         <motion.div

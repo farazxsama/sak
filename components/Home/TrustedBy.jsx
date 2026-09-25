@@ -5,29 +5,31 @@ import { motion } from 'framer-motion';
 // Replace these with real client logos later — drop files in /public/images/clients/
 // and swap the `logo` path. Keeping name + logo together so it stays a single source of truth.
 const rowOne = [
-    { name: 'Client One', logo: '/images/clients/client-1.png' },
-    { name: 'Client Two', logo: '/images/clients/client-2.png' },
-    { name: 'Client Three', logo: '/images/clients/client-3.png' },
-    { name: 'Client Four', logo: '/images/clients/client-4.png' },
-    { name: 'Client Five', logo: '/images/clients/client-5.png' },
+    { name: 'Client One', logo: '/img/brand-logos/new/al-madani.jpg' },
+    { name: 'Client Two', logo: '/img/brand-logos/new/hitachi.png' },
+    { name: 'Client Three', logo: '/img/brand-logos/new/oak.png' },
+    { name: 'Client Four', logo: '/img/brand-logos/new/rectangle-1.png' },
+    { name: 'Client Five', logo: '/img/brand-logos/new/rectangle-3.png' },
 ];
 
 const rowTwo = [
-    { name: 'Client Six', logo: '/images/clients/client-6.png' },
-    { name: 'Client Seven', logo: '/images/clients/client-7.png' },
-    { name: 'Client Eight', logo: '/images/clients/client-8.png' },
-    { name: 'Client Nine', logo: '/images/clients/client-9.png' },
-    { name: 'Client Ten', logo: '/images/clients/client-10.png' },
+    { name: 'Client Six', logo: '/img/brand-logos/new/rectangle-4.png' },
+    { name: 'Client Seven', logo: '/img/brand-logos/new/rectangle-5.png' },
+    { name: 'Client Eight', logo: '/img/brand-logos/new/square-1.png' },
+    { name: 'Client Nine', logo: '/img/brand-logos/new/square-2.png' },
+    { name: 'Client Ten', logo: '/img/brand-logos/new/square-3.png' },
+    { name: 'Client Ten', logo: '/img/brand-logos/new/square-5.png' },
+    { name: 'Client Ten', logo: '/img/brand-logos/new/the-neighbour-hood.jpg' },
+
+
 ];
 
-function LogoItem({ name }) {
+function LogoItem({ name, logo }) {
     // Placeholder chip standing in for a real logo image.
     // Swap this whole block for: <img src={logo} alt={name} className="h-8 w-auto object-contain opacity-70" />
     return (
-        <div className="flex h-12 shrink-0 items-center px-10">
-            <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-[#6B7780]">
-                {name}
-            </span>
+        <div className="flex shrink-0 items-center px-10">
+           <img src={logo} alt={name} className="h-30 w-auto object-contain opacity-70" />
         </div>
     );
 }
@@ -43,7 +45,7 @@ function MarqueeRow({ items, direction = 'left', duration = 28 }) {
                 transition={{ duration, repeat: Infinity, ease: 'linear' }}
             >
                 {doubled.map((item, i) => (
-                    <LogoItem key={`${item.name}-${i}`} name={item.name} />
+                    <LogoItem key={`${item.name}-${i}`} name={item.name} logo={item.logo} />
                 ))}
             </motion.div>
 

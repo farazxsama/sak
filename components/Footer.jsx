@@ -12,9 +12,9 @@ const serviceLinks = [
 const companyLinks = [
     { label: 'About', href: '/about' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Pricing', href: '/pricing' },
+    // { label: 'Pricing', href: '/pricing' },
 
-    { label: 'Academy', href: '/academy' },
+    { label: 'Courses', href: '/courses' },
     { label: 'Careers', href: '/careers' },
     { label: 'Contact', href: '/contact' },
 

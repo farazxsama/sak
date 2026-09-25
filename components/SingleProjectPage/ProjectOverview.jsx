@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 
 export default function ProjectOverview({ project }) {
   const details = [
-    { label: 'Category', value: project.categoryType },
+    { label: 'Category', value: project.categoryType.join(", ") },
     { label: 'Year', value: project.year },
     { label: 'Location', value: project.location },
-    { label: 'Typology', value: project.typology },
+    // { label: 'Typology', value: project.typology },
     { label: 'Area', value: project.area },
-    { label: 'Project Timeline', value: project.projectTimeline },
-    { label: 'Capacity', value: project.capacity },
-    { label: 'Status', value: project.projectStatus },
+    // { label: 'Project Timeline', value: project.projectTimeline },
+    // { label: 'Capacity', value: project.capacity },
+    // { label: 'Status', value: project.projectStatus },
   ];
 
   return (

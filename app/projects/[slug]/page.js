@@ -24,12 +24,12 @@ export default async function ProjectPage({ params }) {
     <>
       <ProjectHero project={project} />
       <ProjectOverview project={project} />
-      <ProjectIntroduction project={project}/>
-      <ProjectScope project={project}/>
-      <ProjectHighlights project={project}/>
+      {/* <ProjectIntroduction project={project}/> */}
+      {/* <ProjectScope project={project}/> */}
+      {/* <ProjectHighlights project={project}/> */}
       <ProjectGallery project={project}/>
       <ProjectVideos project={project}/>
-      <ProjectLocation project={project}/>
+      {/* <ProjectLocation project={project}/> */}
       <CTA/>
       {/* Next sections will go here */}
     </>

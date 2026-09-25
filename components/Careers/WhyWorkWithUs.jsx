@@ -57,7 +57,7 @@ const benefits = [
 
 export default function WhyWorkWithUs() {
   return (
-    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#ffffe4' }}>
+    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Heading */}
         <motion.div
@@ -112,7 +112,7 @@ export default function WhyWorkWithUs() {
                   className="flex h-12 w-12 items-center justify-center rounded-full border transition-colors duration-300 group-hover:bg-[#11161A]"
                   style={{ borderColor: '#11161A33', color: '#11161A' }}
                 >
-                  <Icon size={20} className="transition-colors duration-300 group-hover:text-[#ffffe4]" />
+                  <Icon size={20} className="transition-colors duration-300 group-hover:text-[#FAFAF9]" />
                 </div>
 
                 <h3

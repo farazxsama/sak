@@ -11,7 +11,7 @@ const images = [
   'https://images.unsplash.com/photo-1763251177167-85a9ca1966a8?q=80&w=900&auto=format&fit=crop',
 ];
 
-export default function LifeAtSAK() {
+export default function LifeAtSak() {
   const [isPaused, setIsPaused] = useState(false);
   const track = [...images, ...images]; // duplicated for a seamless loop
 
@@ -27,7 +27,7 @@ export default function LifeAtSAK() {
           </div>
           <h2
             className="text-3xl font-semibold leading-[1.2] tracking-tight sm:text-4xl"
-            style={{ color: '#ffffe4' }}
+            style={{ color: '#FAFAF9' }}
           >
             Life at SAK
           </h2>

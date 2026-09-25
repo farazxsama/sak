@@ -26,7 +26,7 @@ export default function BrandingSection() {
     <section
       ref={sectionRef}
       className="relative h-[200vh] w-full"
-    //   style={{ backgroundColor: "#ffffe4" }}
+    //   style={{ backgroundColor: "#FAFAF9" }}
     >
       <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
         <div className="w-full max-w-7xl px-6 lg:px-10">

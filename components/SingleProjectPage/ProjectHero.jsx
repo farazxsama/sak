@@ -29,7 +29,7 @@ export default function ProjectHero({ project }) {
           <div className="mb-5 flex items-center gap-3">
             <span className="h-px w-8 bg-[#3E7CB1]" />
             <span className="text-[13px] font-medium uppercase tracking-wide text-white/70">
-              {project.categoryType}
+              {project.categoryType.join(", ")}
             </span>
           </div>
 

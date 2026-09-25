@@ -82,7 +82,7 @@ export default function ApplicationForm() {
     }`;
 
   return (
-    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#ffffe4' }}>
+    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="mx-auto max-w-4xl px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -242,7 +242,7 @@ export default function ApplicationForm() {
           <div className="mt-2 flex justify-center sm:justify-end">
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#ffffe4] transition-opacity duration-200 hover:opacity-85"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#FAFAF9] transition-opacity duration-200 hover:opacity-85"
               style={{ backgroundColor: '#11161A' }}
             >
               Submit Application

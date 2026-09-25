@@ -112,7 +112,7 @@ export default function MechanicalEngineeringSubServices() {
           <section
             key={service.number}
             className="w-full py-16 sm:py-20"
-            style={{ backgroundColor: isDark ? '#11161A' : '#ffffe4' }}
+            style={{ backgroundColor: isDark ? '#11161A' : '#FAFAF9' }}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-10">
               <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -150,7 +150,7 @@ export default function MechanicalEngineeringSubServices() {
 
                   <h3
                     className="mt-4 text-2xl font-semibold leading-[1.2] tracking-tight sm:text-3xl"
-                    style={{ color: isDark ? '#ffffe4' : '#11161A' }}
+                    style={{ color: isDark ? '#FAFAF9' : '#11161A' }}
                   >
                     {service.title}
                   </h3>

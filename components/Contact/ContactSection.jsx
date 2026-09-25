@@ -64,7 +64,7 @@ export default function ContactSection() {
     }`;
 
   return (
-    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#ffffe4' }}>
+    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Contact details */}
@@ -108,7 +108,7 @@ export default function ContactSection() {
                     >
                       <Icon
                         size={17}
-                        className="transition-colors duration-300 group-hover:text-[#ffffe4]"
+                        className="transition-colors duration-300 group-hover:text-[#FAFAF9]"
                       />
                     </div>
                     <div>
@@ -193,7 +193,7 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              className="mt-2 inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#ffffe4] transition-opacity duration-200 hover:opacity-85"
+              className="mt-2 inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#FAFAF9] transition-opacity duration-200 hover:opacity-85"
               style={{ backgroundColor: '#11161A' }}
             >
               Send Message

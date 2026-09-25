@@ -26,15 +26,15 @@ export default function PageBanner({ eyebrow, title }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="mb-4 flex items-center gap-3">
-            <span className="h-px w-8" style={{ backgroundColor: '#ffffe4' }} />
-            <span className="text-[13px] font-medium tracking-wide" style={{ color: '#ffffe4' }}>
+            <span className="h-px w-8" style={{ backgroundColor: '#FAFAF9' }} />
+            <span className="text-[13px] font-medium tracking-wide" style={{ color: '#FAFAF9' }}>
               {eyebrow}
             </span>
           </div>
 
           <h1
             className="max-w-2xl text-3xl font-semibold leading-[1.25] tracking-tight sm:text-4xl"
-            style={{ color: '#ffffe4' }}
+            style={{ color: '#FAFAF9' }}
           >
             {title}
           </h1>

@@ -37,13 +37,16 @@ export default function About() {
           </div>
 
           <h2 className="max-w-md text-3xl font-semibold leading-[1.2] tracking-tight text-[#11161A] sm:text-4xl">
-            Engineering solutions built around precision, functionality and design.
+            Our Services Are Our Identity.
           </h2>
 
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-[#4B5860]">
-            SAK brings together civil, architectural and mechanical expertise
-            under one roof — delivering projects that hold up structurally
-            and read beautifully, from first sketch to final handover.
+            SAK Engineering &amp; Architect is a multidisciplinary design
+            company established in 2023, headquartered in Hyderabad with
+            an international reach. We bring together civil, structural,
+            architectural, mechanical and BIM expertise — delivering
+            200+ projects across multiple sectors with a team of 10+
+            professionals.
           </p>
 
           <Link

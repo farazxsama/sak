@@ -17,8 +17,8 @@ const navLinks = [
     ],
   },
   { label: 'Projects', href: '/projects' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Academy', href: '/academy' },
+  // { label: 'Pricing', href: '/pricing' },
+  { label: 'Courses', href: '/courses' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ];

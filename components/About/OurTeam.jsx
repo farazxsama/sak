@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 const team = [
   {
-    name: 'Rahul Sharma',
-    role: 'Lead Architect',
+    name: 'Mohammed Safwan Ali Khan',
+    role: 'Founder & CEO',
     image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop',
   },
   {
@@ -27,7 +27,7 @@ const team = [
 
 export default function OurTeam() {
   return (
-    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#ffffe4' }}>
+    <section className="w-full py-16 sm:py-20" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Heading */}
         <motion.div

@@ -1,52 +1,64 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from 'react';
-import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
-import { FiArrowRight, FiArrowUpRight, FiMapPin } from 'react-icons/fi';
-import { projects } from '../../lib/project-data';
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  FiArrowRight,
+  FiArrowUpRight,
+  FiMapPin,
+} from "react-icons/fi";
+import { projects } from "../../lib/project-data";
 
 const categories = [
-  'All',
-  'Architectural',
-  'Civil & Infrastructure',
-  'Structural Engineering',
-  'BIM & MEP',
-  'Interior Design',
-  '3D Visualization',
-  'Walkthrough & Animation',
-  'Industrial & Mechanical',
+  "All",
+  "Architectural & Interior",
+  "Civil & Infrastructure",
+  "Structural Engineering",
+  "BIM & MEP",
+  "Walkthrough",
+  "Industrial & Mechanical",
 ];
 
 export default function ProjectsListing() {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProjects = useMemo(() => {
-    if (activeCategory === 'All') return projects;
-    return projects.filter((project) => project.categoryType === activeCategory);
+    if (activeCategory === "All") {
+      return projects;
+    }
+
+    return projects.filter((project) =>
+      project.categoryType.includes(activeCategory)
+    );
   }, [activeCategory]);
 
   return (
     <section className="w-full bg-[#FAFAF9] py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Category filter */}
+
+        {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className="mb-14 flex flex-wrap justify-center gap-3 lg:mb-16"
         >
           {categories.map((category) => {
             const isActive = category === activeCategory;
+
             return (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`rounded-full border px-5 py-2.5 text-[13.5px] font-medium transition-colors duration-200 ${
                   isActive
-                    ? 'border-[#11161A] bg-[#11161A] text-white'
-                    : 'border-[#11161A]/15 bg-transparent text-[#4B5860] hover:border-[#11161A]/40 hover:text-[#11161A]'
+                    ? "border-[#11161A] bg-[#11161A] text-white"
+                    : "border-[#11161A]/15 bg-transparent text-[#4B5860] hover:border-[#11161A]/40 hover:text-[#11161A]"
                 }`}
               >
                 {category}
@@ -55,7 +67,7 @@ export default function ProjectsListing() {
           })}
         </motion.div>
 
-        {/* Project grid */}
+        {/* Project Grid */}
         {filteredProjects.length > 0 ? (
           <motion.div
             layout
@@ -66,9 +78,18 @@ export default function ProjectsListing() {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
+                  initial={{
+                    opacity: 0,
+                    y: 24,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: -12,
+                  }}
                   transition={{
                     duration: 0.5,
                     ease: [0.22, 1, 0.36, 1],
@@ -87,17 +108,27 @@ export default function ProjectsListing() {
                         className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
 
-                      {/* Gradient wash for badge legibility */}
+                      {/* Gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0" />
 
-                      {/* Category pill */}
-                      <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3.5 py-1.5 text-[12px] font-medium text-[#11161A] backdrop-blur-sm">
-                        {project.categoryType}
-                      </span>
+                      {/* Categories */}
+                      <div className="absolute left-4 top-4 flex max-w-[85%] flex-wrap gap-2">
+                        {project.categoryType.map((category) => (
+                          <span
+                            key={category}
+                            className="rounded-full bg-white/95 px-3.5 py-1.5 text-[12px] font-medium text-[#11161A] backdrop-blur-sm"
+                          >
+                            {category}
+                          </span>
+                        ))}
+                      </div>
 
-                      {/* Floating arrow button */}
+                      {/* Floating Arrow */}
                       <div className="absolute right-4 top-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white opacity-0 shadow-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <FiArrowUpRight size={16} className="text-[#11161A]" />
+                        <FiArrowUpRight
+                          size={16}
+                          className="text-[#11161A]"
+                        />
                       </div>
                     </div>
 
@@ -113,14 +144,25 @@ export default function ProjectsListing() {
 
                       <div className="mt-6 flex items-center justify-between border-t border-[#11161A]/10 pt-5">
                         <span className="flex items-center gap-1.5 text-[13px] text-[#6B7780]">
-                          <FiMapPin size={13} className="text-[#3E7CB1]" />
-                          {project.location.split(',')[0]}
-                          <span className="text-[#11161A]/20">•</span>
+                          <FiMapPin
+                            size={13}
+                            className="text-[#3E7CB1]"
+                          />
+
+                          {project.location
+                            ? project.location.split(",")[0]
+                            : "—"}
+
+                          <span className="text-[#11161A]/20">
+                            •
+                          </span>
+
                           {project.year}
                         </span>
 
                         <span className="flex items-center gap-1.5 text-[13px] font-medium text-[#11161A] transition-colors duration-200 group-hover:text-[#3E7CB1]">
                           View
+
                           <FiArrowRight
                             size={13}
                             className="transition-transform duration-200 group-hover:translate-x-1"
