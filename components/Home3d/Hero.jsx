@@ -49,7 +49,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-            className="text-3xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-[#11161A]"
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-[#11161A]"
           >
           SAK ENGINEERING & ARCHITECT
           </motion.h1>
@@ -71,7 +71,7 @@ export default function Hero() {
           >
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-[#11161A] bg-[#11161A] px-5 sm:px-7 py-2 sm:py-3 text-[13px] sm:text-[14px] font-medium text-white transition-colors duration-200 hover:bg-transparent hover:text-[#11161A]"
+              className="inline-flex items-center gap-2 rounded-full border border-[#11161A] bg-[#11161A] px-7 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-transparent hover:text-[#11161A]"
             >
               Explore Projects
               <FiArrowRight size={16} />
@@ -91,14 +91,14 @@ export default function Hero() {
           <img
             src="/img/3d-image/building.png"
             alt="Building"
-            className="w-[72%] max-w-4xl object-contain sm:w-[60%] lg:w-[52%]"
+            className="w-[90%] max-w-4xl object-contain sm:w-[60%] lg:w-[52%]"
           />
         </motion.div>
 
         {/* Z-30 — Foreground cloud */}
         <motion.div
           style={{ y: cloudY }}
-          className="absolute inset-x-0 bottom-[-10%] sm:bottom-[-45%] z-30 pointer-events-none"
+          className="absolute inset-x-0 bottom-[-7%] sm:bottom-[-45%] z-30 pointer-events-none"
         >
           <img
             src="/img/3d-image/cloud-fafaf9.png"

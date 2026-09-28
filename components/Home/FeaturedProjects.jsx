@@ -6,28 +6,32 @@ import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi';
 
 const projects = [
   {
-    name: 'Meridian Business Park',
-    location: 'Hyderabad, India',
+    name: 'HITACHI HVDC Valve Factory',
+    slug: "hitachi-hvdc-valve-factory",
+    location: 'Dammam, Saudi Arabia',
     category: 'Civil & Architectural',
-    image: 'https://images.unsplash.com/photo-1609867271967-a82f85c48531?q=80&w=1600&auto=format&fit=crop',
+    image: '/img/project-images/054/1.webp',
   },
   {
-    name: 'Orion Manufacturing Unit',
-    location: 'Pune, India',
-    category: 'Mechanical Engineering',
-    image: 'https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?q=80&w=1600&auto=format&fit=crop',
+    name: 'M.A.M Maternity and Children Hospital',
+    slug: "mam-maternity-and-children-hospital",
+    location: 'Anjuman e Mahdevia, Chanchalguda, Hyderabad, India',
+    category: 'Architectural & Interior',
+    image: '/img/project-images/048/1.webp',
   },
   {
-    name: 'Crestview Corporate Tower',
-    location: 'Bengaluru, India',
-    category: 'Civil & Architectural',
-    image: 'https://images.unsplash.com/photo-1763251177167-85a9ca1966a8?q=80&w=1600&auto=format&fit=crop',
+    name: 'Crystal Gaming Zone',
+    slug: "crystal-gaming-zone",
+    location: 'Kishan Bagh, Hyderabad, India',
+    category: 'Architectural & Interior',
+    image: '/img/project-images/049/1.webp',
   },
   {
-    name: 'Vantage Precision Plant',
-    location: 'Nashik, India',
-    category: 'Mechanical Engineering',
-    image: 'https://images.unsplash.com/photo-1524514587686-e2909d726e9b?q=80&w=1600&auto=format&fit=crop',
+    name: 'Verdi Estate',
+    slug: "verdi-estate",
+    location: 'Tukkuguda, Hyderabad, India',
+    category: 'Civil & Infrastructure',
+    image: '/img/project-images/051/1.webp',
   },
 ];
 
@@ -47,7 +51,7 @@ export default function FeaturedProjects() {
             <span className="h-px w-8 bg-[#3E7CB1]" />
             <span className="text-[13px] font-medium text-[#6B7780]">Our Projects</span>
           </div>
-          <h2 className="text-3xl font-semibold leading-[1.2] tracking-tight text-[#11161A] sm:text-4xl">
+          <h2 className="text-3xl sm:text-4xl font-semibold leading-[1.2] tracking-tight text-[#11161A] ">
             Selected work across architecture, civil and mechanical engineering.
           </h2>
         </motion.div>
@@ -67,7 +71,7 @@ export default function FeaturedProjects() {
               }}
               className="group"
             >
-              <Link href={`/projects/${project.name.toLowerCase().replace(/\s+/g, '-')}`}>
+              <Link href={`/projects/${project.slug}`}>
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={project.image}
