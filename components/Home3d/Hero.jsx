@@ -49,7 +49,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-            className="text-5xl font-bold leading-[1.1] tracking-tight text-[#11161A] sm:text-6xl lg:text-7xl"
+            className="text-3xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-[#11161A]"
           >
           SAK ENGINEERING & ARCHITECT
           </motion.h1>
@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
             className="mt-2 max-w-md text-[15px] leading-relaxed text-[#11161A]/70"
           >
-            Multidisciplinary engineering and architectural solutions for buildings, infrastructure, industrial projects and the built environment.
+            Designing spaces. Engineering structures. Delivering coordinated BIM solutions.
           </motion.p>
 
           <motion.div
@@ -71,7 +71,7 @@ export default function Hero() {
           >
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-[#11161A] bg-[#11161A] px-7 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-transparent hover:text-[#11161A]"
+              className="inline-flex items-center gap-2 rounded-full border border-[#11161A] bg-[#11161A] px-5 sm:px-7 py-2 sm:py-3 text-[13px] sm:text-[14px] font-medium text-white transition-colors duration-200 hover:bg-transparent hover:text-[#11161A]"
             >
               Explore Projects
               <FiArrowRight size={16} />

@@ -176,7 +176,7 @@ function ApplyModal({ course, onClose }) {
         exit={{ opacity: 0, y: 24, scale: 0.97 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-sm p-7 sm:p-8"
-        style={{ backgroundColor: '#ffffe4' }}
+        style={{ backgroundColor: '#fafaf9' }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close */}

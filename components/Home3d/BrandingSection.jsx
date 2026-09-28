@@ -53,10 +53,7 @@ export default function BrandingSection() {
               return (
                 <div
                   key={`${letter}-${index}`}
-                  className={`
-    relative shrink-0
-    ${index === 3 ? "ml-3 sm:ml-8 lg:ml-12" : ""}
-  `}
+                  className={`relative shrink-0 ${index === 3 ? "ml-3 sm:ml-8 lg:ml-12" : ""}`}
                   style={{
                     width: "clamp(55px, 14vw, 160px)",
                     height: "clamp(100px, 18vw, 220px)",
@@ -110,13 +107,13 @@ export default function BrandingSection() {
             style={{
               opacity: useTransform(
                 scrollYProgress,
-                [0.72, 0.85],
+                [0.72, 0.74],
                 [0, 1]
               ),
               y: useTransform(
                 scrollYProgress,
-                [0.72, 0.85],
-                [30, 0]
+                [0.72, 0.74],
+                [10, 0]
               ),
             }}
             className="mt-8 text-center sm:mt-10"

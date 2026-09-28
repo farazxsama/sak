@@ -53,11 +53,11 @@ export default function Footer() {
 
                         <div className="mt-8 flex flex-col gap-3">
                             <a
-                                href="mailto:info@sakengineering.com"
+                                href="mailto:sakengineering.co.in@gmail.com"
                                 className="flex items-center gap-3 text-[14px] text-white/60 transition-colors duration-200 hover:text-white"
                             >
                                 <FiMail size={15} className="shrink-0 text-[#3E7CB1]" />
-                                info@sakengineering.com
+                                sakengineering.co.in@gmail.com
                             </a>
                             <a
                                 href="tel:+917842103005"

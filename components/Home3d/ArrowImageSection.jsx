@@ -126,14 +126,14 @@ export default function ArrowImageSection() {
                 key={image}
                 className={`
                   relative
-                  h-[180px]
-                  w-[180px]
+                  h-[160px]
+                  w-[110px]
                   shrink-0
                   sm:h-[220px]
                   sm:w-[220px]
                   lg:h-[280px]
                   lg:w-[280px]
-                  ${index !== 0 ? "-ml-[45px] sm:-ml-[55px] lg:-ml-[70px]" : ""}
+                  ${index !== 0 ? "-ml-[38px] sm:-ml-[55px] lg:-ml-[70px]" : ""}
                 `}
                 style={{
                   clipPath:

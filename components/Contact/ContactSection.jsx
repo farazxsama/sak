@@ -14,8 +14,8 @@ const contactDetails = [
   {
     icon: FiMail,
     label: 'Email',
-    value: 'info@sakea.com',
-    href: 'mailto:info@sakea.com',
+    value: 'sakengineering.co.in@gmail.com',
+    href: 'mailto:sakengineering.co.in@gmail.com',
   },
   {
     icon: FiMapPin,
