@@ -68,7 +68,7 @@ export default function Footer() {
                             </a>
                             <div className="flex items-start gap-3 text-[14px] text-white/60">
                                 <FiMapPin size={15} className="mt-0.5 shrink-0 text-[#3E7CB1]" />
-                                <span>Hyderabad, Telangana, India</span>
+                                <span>16-7-259, Shahid, Shaheed Hyder Ali Rd, Azampura, Malakpet, Hyderabad, Telangana 500024</span>
                             </div>
                         </div>
                     </div>
@@ -131,23 +131,19 @@ export default function Footer() {
                 {/* Divider */}
                 <div className="mt-16 border-t border-white/10 pt-6">
                     <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-                        <span className="text-[13px] text-white/40">
+                        <span className="text-[13px] text-white">
                             © {new Date().getFullYear()} SAK Engineering &amp; Architect. All rights reserved.
                         </span>
 
                         <div className="flex items-center gap-5">
-                            <Link
-                                href="/privacy-policy"
-                                className="text-[13px] text-white/40 transition-colors duration-200 hover:text-white"
+                            <a
+                                href="https://www.samaandco.com/"
+                                target='_blank'
+                                className="text-[13px] text-white transition-colors duration-200 hover:text-[#00a8ab]"
                             >
-                                Privacy Policy
-                            </Link>
-                            <Link
-                                href="/terms"
-                                className="text-[13px] text-white/40 transition-colors duration-200 hover:text-white"
-                            >
-                                Terms
-                            </Link>
+                                Made with ❤️ by SAMA & CO
+                            </a>
+                           
                         </div>
                     </div>
                 </div>

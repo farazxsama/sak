@@ -20,8 +20,8 @@ const contactDetails = [
   {
     icon: FiMapPin,
     label: 'Address',
-    value: 'Hyderabad, Telangana, India',
-    href: 'https://maps.google.com/?q=Hyderabad+Telangana',
+    value: '16-7-259, Shahid, Shaheed Hyder Ali Rd, Azampura, Malakpet, Hyderabad, Telangana 500024',
+    href: 'https://maps.app.goo.gl/VCoC7CPLLJD3b9qD6?g_st=aw',
   },
 ];
 

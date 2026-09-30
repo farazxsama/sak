@@ -21,6 +21,9 @@ const navLinks = [
   { label: 'Courses', href: '/courses' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
+  { label: 'SEA E&A', href: '/sea' },
+
+
 ];
 
 export default function Header() {
@@ -51,16 +54,14 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${
-        scrolled ? 'lg:top-4' : 'lg:top-0'
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${scrolled ? 'lg:top-4' : 'lg:top-0'
+        }`}
     >
       <div
-        className={`mx-auto flex h-20 items-center justify-between px-6 transition-all duration-500 ease-out lg:px-10 ${
-          scrolled
+        className={`mx-auto flex h-20 items-center justify-between px-6 transition-all duration-500 ease-out lg:px-10 ${scrolled
             ? 'max-w-7xl border-b border-[#E9ECEE] bg-white lg:h-[68px] lg:max-w-5xl lg:rounded-full lg:border-none lg:bg-white lg:px-8 lg:shadow-[0_8px_30px_rgba(17,22,26,0.12)]'
             : 'max-w-7xl border-b border-transparent bg-transparent'
-        }`}
+          }`}
       >
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-3">
@@ -82,9 +83,8 @@ export default function Header() {
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <button
-                  className={`flex items-center gap-1 text-[14.5px] font-medium transition-colors duration-300 ${
-                    isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
-                  }`}
+                  className={`flex items-center gap-1 text-[14.5px] font-medium transition-colors duration-300 ${isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
+                    }`}
                 >
                   {link.label}
                   <FiChevronDown
@@ -121,9 +121,8 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[14.5px] font-medium transition-colors duration-300 ${
-                  isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
-                }`}
+                className={`text-[14.5px] font-medium transition-colors duration-300 ${isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -135,9 +134,8 @@ export default function Header() {
         <button
           aria-label="Toggle menu"
           onClick={() => setMobileOpen((v) => !v)}
-          className={`-mr-2 p-2 transition-colors duration-300 lg:hidden ${
-            isDark ? 'text-[#11161A]' : 'text-white'
-          }`}
+          className={`-mr-2 p-2 transition-colors duration-300 lg:hidden ${isDark ? 'text-[#11161A]' : 'text-white'
+            }`}
         >
           {mobileOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>

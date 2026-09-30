@@ -17,7 +17,7 @@ const services = [
       'Design documentation',
     ],
     image:
-      'https://images.unsplash.com/photo-1763251177167-85a9ca1966a8?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/1.jpg',
   },
   {
     number: '02',
@@ -33,7 +33,7 @@ const services = [
       'Project visualization',
     ],
     image:
-      'https://images.unsplash.com/photo-1781888688940-5730c3fd5baf?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/2.png',
   },
   {
     number: '03',
@@ -49,7 +49,7 @@ const services = [
       'Photorealistic rendering',
     ],
     image:
-      'https://images.unsplash.com/photo-1621831337128-35676ca30868?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/3.png',
   },
   {
     number: '04',
@@ -65,7 +65,7 @@ const services = [
       'Detailed room planning',
     ],
     image:
-      'https://images.unsplash.com/photo-1721244654195-943615c56ac4?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/4.png',
   },
   {
     number: '05',
@@ -81,7 +81,7 @@ const services = [
       'Structural drawings',
     ],
     image:
-      'https://images.unsplash.com/photo-1622109912940-2bddde35274d?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/5.jpg',
   },
   {
     number: '06',
@@ -97,7 +97,7 @@ const services = [
       'Fabrication drawings',
     ],
     image:
-      'https://images.unsplash.com/photo-1509024368907-57294758cfc5?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/6.jpg',
   },
   {
     number: '07',
@@ -113,7 +113,7 @@ const services = [
       'Detailed engineering documentation',
     ],
     image:
-      'https://images.unsplash.com/photo-1633363961301-4f100a78e92d?q=80&w=1600&auto=format&fit=crop',
+      '/img/civil-service/7.png',
   },
 ];
 
@@ -144,7 +144,7 @@ export default function CivilArchitecturalSubServices() {
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                 </motion.div>
 

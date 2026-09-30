@@ -14,8 +14,8 @@ const team = [
   },
   {
     name: "Mohammed Dayyan Ali Khan",
-    role: "General Manager — Mechanical Engineering",
-    title: "Mechanical Engineer | 4+ Years Experience",
+    role: "General Manager — Mechanical Designer",
+    title: "Mechanical Designer | 4+ Years Experience",
     description:
       "Mohammed Dayyan Ali Khan serves as General Manager at SAK E&A, specializing in mechanical engineering and design. With experience in complex industrial and engineering environments, his project exposure includes work associated with Amaala, Saudi Arabia, Hitachi Energy and ABB. His role focuses on mechanical design coordination, engineering development and supporting multidisciplinary project delivery.",
     projects: ["Amaala — Saudi Arabia", "Hitachi Energy", "ABB"],
@@ -28,6 +28,7 @@ const team = [
     title: "Mechanical Engineer | 30+ Years Experience",
     description:
       "With more than 30 years of professional experience, Mohammed Sadathullah Khan brings extensive expertise in mechanical engineering and industrial project environments to SAK E&A.",
+    projects: ["Mitsubishi — Kuwait", "Hitachi Zosan - Oman", "Doosan Heavy Industries & Construction Co., Ltd.", "Oman Refinery"],
     image:
       "/img/team/managing-director.jpeg",
   },

@@ -3,12 +3,16 @@
 import { useState } from 'react';
 
 const images = [
-  'https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=900&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1609867271967-a82f85c48531?q=80&w=900&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=900&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1706074793638-da28b90ea8ae?q=80&w=900&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1781888688940-5730c3fd5baf?q=80&w=900&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1763251177167-85a9ca1966a8?q=80&w=900&auto=format&fit=crop',
+  '/img/life-at-sak/1.jpeg',
+  '/img/life-at-sak/2.jpeg',
+  '/img/life-at-sak/3.webp',
+  '/img/life-at-sak/4.jpeg',
+  '/img/life-at-sak/5.jpeg',
+  '/img/life-at-sak/6.jpeg',
+  '/img/life-at-sak/7.webp',
+  '/img/life-at-sak/8.jpeg',
+  '/img/life-at-sak/9.webp',
+
 ];
 
 export default function LifeAtSak() {

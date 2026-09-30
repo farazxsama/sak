@@ -5,21 +5,24 @@ import { motion } from 'framer-motion';
 // Replace these with real client logos later — drop files in /public/images/clients/
 // and swap the `logo` path. Keeping name + logo together so it stays a single source of truth.
 const rowOne = [
-    { name: 'Client One', logo: '/img/brand-logos/new/al-madani.jpg' },
-    { name: 'Client Two', logo: '/img/brand-logos/new/hitachi.png' },
-    { name: 'Client Three', logo: '/img/brand-logos/new/oak.png' },
-    { name: 'Client Four', logo: '/img/brand-logos/new/rectangle-1.png' },
-    { name: 'Client Five', logo: '/img/brand-logos/new/rectangle-3.png' },
+    { name: 'Client 1', logo: '/img/brand-logos/new/doosan.jpg' },
+    { name: 'Client 2', logo: '/img/brand-logos/new/mitsubishi.jpg' },
+    { name: 'Client 3', logo: '/img/brand-logos/new/hitachi.png' },
+    { name: 'Client 4', logo: '/img/brand-logos/new/gse-c.png' },
+    { name: 'Client 5', logo: '/img/brand-logos/new/abb.png' },
+    { name: 'Client 6', logo: '/img/brand-logos/new/citcd.png' },
+    { name: 'Client 7', logo: '/img/brand-logos/new/oak.png' },
+    
 ];
 
 const rowTwo = [
-    { name: 'Client Six', logo: '/img/brand-logos/new/rectangle-4.png' },
-    { name: 'Client Seven', logo: '/img/brand-logos/new/rectangle-5.png' },
-    { name: 'Client Eight', logo: '/img/brand-logos/new/square-1.png' },
-    { name: 'Client Nine', logo: '/img/brand-logos/new/square-2.png' },
-    { name: 'Client Ten', logo: '/img/brand-logos/new/square-3.png' },
-    { name: 'Client Ten', logo: '/img/brand-logos/new/square-5.png' },
-    { name: 'Client Ten', logo: '/img/brand-logos/new/the-neighbour-hood.jpg' },
+    { name: 'Client 8', logo: '/img/brand-logos/new/al-madani.jpg' },
+    { name: 'Client 9', logo: '/img/brand-logos/new/lodha.png' },
+    { name: 'Client 10', logo: '/img/brand-logos/new/dosti.png' },
+    { name: 'Client 11', logo: '/img/brand-logos/new/the-neighbour-hood.jpg' },
+    { name: 'Client 12', logo: '/img/brand-logos/new/jp-mindtree.png' },
+    { name: 'Client 13', logo: '/img/brand-logos/new/meenakshi.png' },
+    { name: 'Client 14', logo: '/img/brand-logos/new/urdu.png' },
 
 
 ];
