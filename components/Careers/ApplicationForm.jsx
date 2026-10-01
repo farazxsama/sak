@@ -66,19 +66,44 @@ export default function ApplicationForm() {
     if (errors.resume) setErrors((prev) => ({ ...prev, resume: undefined }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    // TODO: wire this up to a real backend/API endpoint once one exists.
-    // Example: send `form` (including form.resume) via FormData to your
-    // application-intake API route.
-    console.log('Application ready to submit:', form);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'd8b2b562-4d15-4faa-9719-f2db620cac07',
+          subject: `Career Application — ${form.position || 'Position Not Selected'}`,
+          from_name: form.name,
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          position: form.position,
+          message: form.message,
+          // resume intentionally excluded (free plan limitation)
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setForm(initialForm);
+        setFileName('');
+        alert('Application submitted successfully! We will review your details and get back to you.');
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Web3Forms error:', err);
+      alert('Failed to submit. Please check your connection and try again.');
+    }
   };
 
   const inputClass = (field) =>
-    `w-full border bg-transparent px-4 py-3 text-[15px] text-[#11161A] outline-none transition-colors duration-200 placeholder:text-[#11161A66] ${
-      errors[field] ? 'border-red-500' : 'border-[#11161A33] focus:border-[#11161A]'
+    `w-full border bg-transparent px-4 py-3 text-[15px] text-[#11161A] outline-none transition-colors duration-200 placeholder:text-[#11161A66] ${errors[field] ? 'border-red-500' : 'border-[#11161A33] focus:border-[#11161A]'
     }`;
 
   return (
@@ -215,9 +240,8 @@ export default function ApplicationForm() {
             </label>
             <label
               htmlFor="resume-upload"
-              className={`flex cursor-pointer items-center justify-between border px-4 py-3 transition-colors duration-200 ${
-                errors.resume ? 'border-red-500' : 'border-[#11161A33] hover:border-[#11161A]'
-              }`}
+              className={`flex cursor-pointer items-center justify-between border px-4 py-3 transition-colors duration-200 ${errors.resume ? 'border-red-500' : 'border-[#11161A33] hover:border-[#11161A]'
+                }`}
             >
               <span className="flex items-center gap-3 text-[15px]" style={{ color: fileName ? '#11161A' : '#11161A66' }}>
                 <FiUpload size={16} />

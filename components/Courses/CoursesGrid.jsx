@@ -145,19 +145,47 @@ function ApplyModal({ course, onClose }) {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-    // TODO: wire to backend / email API
-    console.log('Application submitted:', { course: course.name, ...form });
-    onClose();
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'd8b2b562-4d15-4faa-9719-f2db620cac07',
+          subject: `Course Application — ${course.name}`,
+          from_name: form.name,
+          name: form.name,
+          phone: form.number,
+          email: form.email || 'Not provided',
+          address: form.address || 'Not provided',
+          course: course.name,
+          preferred_timing: form.timing || 'Not selected',
+          preferred_start_date: form.startDate || 'Not selected',
+          message: form.message || 'No message',
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        onClose();
+        alert(`Application submitted successfully! We will contact you soon.`);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Web3Forms error:', err);
+      alert('Failed to submit. Please check your connection and try again.');
+    }
   };
 
   const inputClass = (field) =>
-    `w-full border bg-transparent px-4 py-2.5 text-[14px] text-[#11161A] outline-none transition-colors duration-200 placeholder:text-[#11161A66] rounded-sm ${
-      errors[field]
-        ? 'border-red-400'
-        : 'border-[#11161A33] focus:border-[#11161A]'
+    `w-full border bg-transparent px-4 py-2.5 text-[14px] text-[#11161A] outline-none transition-colors duration-200 placeholder:text-[#11161A66] rounded-sm ${errors[field]
+      ? 'border-red-400'
+      : 'border-[#11161A33] focus:border-[#11161A]'
     }`;
 
   return (

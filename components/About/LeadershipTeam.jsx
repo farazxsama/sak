@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const team = [
   {
-    name: "Mohammed Safwan Ali Khan",
+    name: "Hafiz Mohammed Safwan Ali Khan",
     role: "Founder & CEO",
     title: "Chief Engineering Designer",
     description:
@@ -13,7 +13,7 @@ const team = [
       "/img/team/ceo.jpeg",
   },
   {
-    name: "Mohammed Dayyan Ali Khan",
+    name: "Hafiz Mohammed Dayyan Ali Khan",
     role: "General Manager — Mechanical Designer",
     title: "Mechanical Designer | 4+ Years Experience",
     description:

@@ -9,6 +9,12 @@ import WhatMakesUsDifferent from '../../components/About/WhatMakesUsDifferent';
 import CoreValues from '../../components/About/CoreValues';
 import LeadershipTeam from '../../components/About/LeadershipTeam';
 
+export const metadata = {
+    title: "About Us | SAK Engineering & Architect",
+    description:
+        "Learn about SAK Engineering & Architect, a multidisciplinary engineering and architectural design company delivering integrated solutions across engineering, architecture, BIM, MEP, infrastructure, and visualization.",
+};
+
 const page = () => {
     return (
         <>

@@ -17,9 +17,9 @@ export default function About() {
           className="relative h-[320px] w-full lg:h-auto lg:min-h-[480px]"
         >
           <img
-            src="https://images.unsplash.com/photo-1781888688940-5730c3fd5baf?q=80&w=1600&auto=format&fit=crop"
-            alt="SAK engineering and architectural planning"
-            className="absolute inset-0 h-full w-full object-cover"
+            src="/img/sak-logo.png"
+            alt="SAK engineering and architectural"
+            className="absolute inset-0 h-full w-full object-contain"
           />
         </motion.div>
 

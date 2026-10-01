@@ -50,17 +50,41 @@ export default function ContactSection() {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    // TODO: wire this up to a real backend/API endpoint once one exists.
-    console.log('Contact form ready to submit:', form);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'd8b2b562-4d15-4faa-9719-f2db620cac07',
+          subject: `New Contact Message — ${form.name}`,
+          from_name: form.name,
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setForm(initialForm);
+        alert('Message sent successfully! We will get back to you soon.');
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Web3Forms error:', err);
+      alert('Failed to send. Please check your connection and try again.');
+    }
   };
 
   const inputClass = (field) =>
-    `w-full border bg-transparent px-4 py-3 text-[15px] text-[#11161A] outline-none transition-colors duration-200 placeholder:text-[#11161A66] ${
-      errors[field] ? 'border-red-500' : 'border-[#11161A33] focus:border-[#11161A]'
+    `w-full border bg-transparent px-4 py-3 text-[15px] text-[#11161A] outline-none transition-colors duration-200 placeholder:text-[#11161A66] ${errors[field] ? 'border-red-500' : 'border-[#11161A33] focus:border-[#11161A]'
     }`;
 
   return (

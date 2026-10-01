@@ -11,9 +11,36 @@ import ProjectVideos from '../../../components/SingleProjectPage/ProjectVideos';
 import ProjectLocation from '../../../components/SingleProjectPage/ProjectLocation';
 import CTA from '../../../components/Home/CTA';
 
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
+
+    const project = projects.find((p) => p.slug === slug);
+
+    if (!project) {
+        return {
+            title: 'Project Not Found',
+            description: 'The requested project could not be found.',
+        };
+    }
+
+    const categories = Array.isArray(project.categoryType)
+        ? project.categoryType.join(', ')
+        : project.categoryType || 'Engineering & Architecture';
+
+    const location = project.location || 'India';
+
+    return {
+        title: `${project.title} | SAK Engineering & Architect`,
+        description: `${project.title} by SAK Engineering & Architect — ${categories} project in ${location}.`,
+    };
+}
+
+
 export default async function ProjectPage({ params }) {
    
     const {slug} = await params;
+
+
   const project = projects.find((p) => p.slug === slug);
   
   if (!project) {

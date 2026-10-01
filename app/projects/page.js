@@ -3,6 +3,12 @@ import PageBanner from "../../components/Reusable/PageBanner"
 import ProjectsListing from '../../components/Projects/ProjectsListing';
 import CTA from '../../components/Home/CTA';
 
+export const metadata = {
+    title: "Projects | SAK Engineering & Architect",
+    description:
+        "Explore SAK Engineering & Architect projects across architectural design, civil and infrastructure, structural engineering, BIM, MEP, and mechanical engineering.",
+};
+
 const page = () => {
     return (
         <>

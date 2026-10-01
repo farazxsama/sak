@@ -1,4 +1,5 @@
 
+import type { Metadata } from "next";
 import Hero from "@/components/Home3d/Hero";
 import Statement from "@/components/Home3d/Statement";
 import BrandingSection from "@/components/Home3d/BrandingSection";
@@ -11,8 +12,13 @@ import TrustedBy from "@/components/Home/TrustedBy";
 import Stats from "@/components/Home/Stats";
 import Process from "@/components/Home/Process";
 import CTA from "@/components/Home/CTA";
-
 import About from "@/components/Home/About";
+
+export const metadata: Metadata = {
+  title: "SAK Engineering & Architect",
+  description:
+    "SAK Engineering & Architecture delivers integrated engineering, architectural design, BIM, MEP, mechanical engineering, infrastructure, and 3D visualization solutions.",
+};
 
 
 export default function Home() {
