@@ -131,6 +131,8 @@ const initialForm = {
 function ApplyModal({ course, onClose }) {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState(null); // { type: 'success' | 'error', text: string }
 
   const validate = () => {
     const next = {};
@@ -143,11 +145,16 @@ function ApplyModal({ course, onClose }) {
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    if (status) setStatus(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (!validate()) return;
+
+    setIsSubmitting(true);
+    setStatus(null);
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -165,20 +172,23 @@ function ApplyModal({ course, onClose }) {
           preferred_timing: form.timing || 'Not selected',
           preferred_start_date: form.startDate || 'Not selected',
           message: form.message || 'No message',
+          type: 'Courses Form',
         }),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        onClose();
-        alert(`Application submitted successfully! We will contact you soon.`);
+        setForm(initialForm);
+        setStatus({ type: 'success', text: 'Application submitted successfully! We will contact you soon.' });
       } else {
-        alert('Something went wrong. Please try again.');
+        setStatus({ type: 'error', text: 'Something went wrong. Please try again.' });
       }
     } catch (err) {
       console.error('Web3Forms error:', err);
-      alert('Failed to submit. Please check your connection and try again.');
+      setStatus({ type: 'error', text: 'Failed to submit. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -354,10 +364,21 @@ function ApplyModal({ course, onClose }) {
             />
           </div>
 
+          {/* Status message */}
+          {status && (
+            <p
+              className={`text-[13px] ${status.type === 'success' ? 'text-green-600' : 'text-red-500'}`}
+              role="status"
+            >
+              {status.text}
+            </p>
+          )}
+
           {/* Submit */}
           <button
             type="submit"
-            className="mt-1 inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-[14px] font-medium text-[#ffffe4] transition-opacity duration-200 hover:opacity-85"
+            disabled={isSubmitting}
+            className="cursor-pointer mt-1 inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-[14px] font-medium text-[#ffffe4] transition-opacity duration-200 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-60"
             style={{ backgroundColor: '#11161A' }}
           >
             Submit Application

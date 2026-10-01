@@ -30,6 +30,8 @@ const initialForm = { name: '', email: '', phone: '', message: '' };
 export default function ContactSection() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState(null); // { type: 'success' | 'error', text: string }
 
   const validate = () => {
     const next = {};
@@ -48,11 +50,16 @@ export default function ContactSection() {
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    if (status) setStatus(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (!validate()) return;
+
+    setIsSubmitting(true);
+    setStatus(null);
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -66,6 +73,7 @@ export default function ContactSection() {
           email: form.email,
           phone: form.phone,
           message: form.message,
+          type: 'Contact Form',
         }),
       });
 
@@ -73,13 +81,15 @@ export default function ContactSection() {
 
       if (data.success) {
         setForm(initialForm);
-        alert('Message sent successfully! We will get back to you soon.');
+        setStatus({ type: 'success', text: 'Message sent successfully! We will get back to you soon.' });
       } else {
-        alert('Something went wrong. Please try again.');
+        setStatus({ type: 'error', text: 'Something went wrong. Please try again.' });
       }
     } catch (err) {
       console.error('Web3Forms error:', err);
-      alert('Failed to send. Please check your connection and try again.');
+      setStatus({ type: 'error', text: 'Failed to send. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -215,9 +225,20 @@ export default function ContactSection() {
               {errors.message && <p className="mt-2 text-[13px] text-red-500">{errors.message}</p>}
             </div>
 
+            {/* Status message */}
+            {status && (
+              <p
+                className={`text-[14px] ${status.type === 'success' ? 'text-green-600' : 'text-red-500'}`}
+                role="status"
+              >
+                {status.text}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="mt-2 inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#FAFAF9] transition-opacity duration-200 hover:opacity-85"
+              disabled={isSubmitting}
+              className="cursor-pointer mt-2 inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#FAFAF9] transition-opacity duration-200 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-60"
               style={{ backgroundColor: '#11161A' }}
             >
               Send Message

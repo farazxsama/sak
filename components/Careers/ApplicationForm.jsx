@@ -30,6 +30,8 @@ export default function ApplicationForm() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [fileName, setFileName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState(null); // { type: 'success' | 'error', text: string }
 
   const validate = () => {
     const next = {};
@@ -57,6 +59,7 @@ export default function ApplicationForm() {
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    if (status) setStatus(null);
   };
 
   const handleFileChange = (e) => {
@@ -64,11 +67,16 @@ export default function ApplicationForm() {
     setForm((prev) => ({ ...prev, resume: file }));
     setFileName(file ? file.name : '');
     if (errors.resume) setErrors((prev) => ({ ...prev, resume: undefined }));
+    if (status) setStatus(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (!validate()) return;
+
+    setIsSubmitting(true);
+    setStatus(null);
 
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -83,6 +91,7 @@ export default function ApplicationForm() {
           phone: form.phone,
           position: form.position,
           message: form.message,
+          type: 'Careers Form',
           // resume intentionally excluded (free plan limitation)
         }),
       });
@@ -92,13 +101,18 @@ export default function ApplicationForm() {
       if (data.success) {
         setForm(initialForm);
         setFileName('');
-        alert('Application submitted successfully! We will review your details and get back to you.');
+        setStatus({
+          type: 'success',
+          text: 'Application submitted successfully! We will review your details and get back to you.',
+        });
       } else {
-        alert('Something went wrong. Please try again.');
+        setStatus({ type: 'error', text: 'Something went wrong. Please try again.' });
       }
     } catch (err) {
       console.error('Web3Forms error:', err);
-      alert('Failed to submit. Please check your connection and try again.');
+      setStatus({ type: 'error', text: 'Failed to submit. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -262,11 +276,22 @@ export default function ApplicationForm() {
             {errors.resume && <p className="mt-2 text-[13px] text-red-500">{errors.resume}</p>}
           </div>
 
+          {/* Status message */}
+          {status && (
+            <p
+              className={`text-center text-[14px] sm:text-right ${status.type === 'success' ? 'text-green-600' : 'text-red-500'}`}
+              role="status"
+            >
+              {status.text}
+            </p>
+          )}
+
           {/* Submit */}
           <div className="mt-2 flex justify-center sm:justify-end">
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#FAFAF9] transition-opacity duration-200 hover:opacity-85"
+              disabled={isSubmitting}
+              className="cursor-pointer inline-flex items-center justify-center rounded-full px-8 py-3 text-[14px] font-medium text-[#FAFAF9] transition-opacity duration-200 hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-60"
               style={{ backgroundColor: '#11161A' }}
             >
               Submit Application
