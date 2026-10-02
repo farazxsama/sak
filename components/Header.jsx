@@ -1,7 +1,5 @@
 'use client';
-
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 
@@ -64,13 +62,13 @@ export default function Header() {
           }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-3">
+        <a href="/" className="flex shrink-0 items-center gap-3">
           <img
             src="/img/sak-logo.png"
             alt="SAK"
             className="h-auto w-[160px] object-cover"
           />
-        </Link>
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-9 lg:flex">
@@ -104,13 +102,13 @@ export default function Header() {
                     >
                       <div className="overflow-hidden rounded-md border border-[#E9ECEE] bg-white shadow-lg shadow-black/5">
                         {link.children.map((child) => (
-                          <Link
+                          <a
                             key={child.href}
                             href={child.href}
                             className="block px-5 py-3.5 text-[14px] text-[#4B5860] transition-colors duration-150 hover:bg-[#F5F6F7] hover:text-[#11161A]"
                           >
                             {child.label}
-                          </Link>
+                          </a>
                         ))}
                       </div>
                     </motion.div>
@@ -118,14 +116,14 @@ export default function Header() {
                 </AnimatePresence>
               </div>
             ) : (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 className={`text-[14.5px] font-medium transition-colors duration-300 ${isDark ? 'text-[#2F3A40] hover:text-[#11161A]' : 'text-white/90 hover:text-white'
                   }`}
               >
                 {link.label}
-              </Link>
+              </a>
             )
           )}
         </nav>
@@ -175,28 +173,28 @@ export default function Header() {
                           className="flex flex-col overflow-hidden pl-4"
                         >
                           {link.children.map((child) => (
-                            <Link
+                            <a
                               key={child.href}
                               href={child.href}
                               onClick={() => setMobileOpen(false)}
                               className="py-2.5 text-[14px] text-[#6B7780]"
                             >
                               {child.label}
-                            </Link>
+                            </a>
                           ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
                 ) : (
-                  <Link
+                  <a
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className="border-b border-[#F5F6F7] py-3 text-[15px] font-medium text-[#1C2328] last:border-none"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 )
               )}
             </div>

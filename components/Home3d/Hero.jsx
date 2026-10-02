@@ -1,7 +1,5 @@
 'use client';
-
 import { useRef } from 'react';
-import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -69,13 +67,13 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
             className="mt-2"
           >
-            <Link
+            <a
               href="/projects"
               className="inline-flex items-center gap-2 rounded-full border border-[#11161A] bg-[#11161A] px-7 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-transparent hover:text-[#11161A]"
             >
               Explore Projects
               <FiArrowRight size={16} />
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
 

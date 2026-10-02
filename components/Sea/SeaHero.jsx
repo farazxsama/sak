@@ -2,9 +2,7 @@
 // components/sea/SeaHero.jsx
 
 'use client';
-
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 
 export default function SeaHero() {
@@ -56,21 +54,21 @@ export default function SeaHero() {
           </p>
 
           {/* <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
+            <a
               href="/sister-company#contact"
               className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-medium transition-opacity duration-200 hover:opacity-85"
               style={{ backgroundColor: '#c9a96e', color: '#0a0a08' }}
             >
               Begin a Private Enquiry
               <FiArrowRight size={15} />
-            </Link>
-            <Link
+            </a>
+            <a
               href="/sister-company#about"
               className="inline-flex items-center gap-2 rounded-full border px-7 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-white/10"
               style={{ borderColor: 'rgba(255,255,255,0.3)' }}
             >
               Discover SEA
-            </Link>
+            </a>
           </div> */}
         </motion.div>
       </div>

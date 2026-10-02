@@ -1,6 +1,4 @@
 'use client';
-
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -101,7 +99,7 @@ export default function Services() {
                 </ul>
               </div>
 
-              <Link
+              <a
                 href={service.href}
                 className="group mt-10 inline-flex w-fit items-center gap-2 text-[14px] font-medium transition-colors duration-200"
                 style={{ color: '#11161A' }}
@@ -111,7 +109,7 @@ export default function Services() {
                   size={15}
                   className="transition-transform duration-200 group-hover:translate-x-1"
                 />
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>

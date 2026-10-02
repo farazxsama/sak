@@ -1,7 +1,5 @@
 "use client";
-
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FiArrowRight,
@@ -96,7 +94,7 @@ export default function ProjectsListing() {
                     delay: index * 0.06,
                   }}
                 >
-                  <Link
+                  <a
                     href={`/projects/${project.slug}`}
                     className="group flex h-full flex-col overflow-hidden border border-[#11161A]/10 bg-white transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(17,22,26,0.08)]"
                   >
@@ -170,7 +168,7 @@ export default function ProjectsListing() {
                         </span>
                       </div>
                     </div>
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </AnimatePresence>

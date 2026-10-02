@@ -1,7 +1,4 @@
 'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -20,12 +17,10 @@ export default function Hero() {
     <section className="relative min-h-screen w-full overflow-hidden bg-[#11161A]">
       {/* Background image — replace with a real project photo later */}
       <div className="absolute inset-0">
-        <Image
+        <img
           src="/img/sak-hero-banner.png"
           alt="Engineering and architectural project"
-          fill
-          // sizes="100vw"
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
 
@@ -66,19 +61,19 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
+            <a
               href="/projects"
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-[#11161A] transition-colors duration-200 hover:bg-white/90"
             >
               Explore Our Projects
               <FiArrowRight size={16} />
-            </Link>
-            <Link
+            </a>
+            <a
               href="/services"
               className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
             >
               Our Services
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>

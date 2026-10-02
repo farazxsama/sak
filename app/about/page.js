@@ -1,7 +1,6 @@
 import React from 'react'
 import PageBanner from '../../components/Reusable/PageBanner';
 import WhoWeAre from '../../components/About/WhoWeAre';
-import OurTeam from '../../components/About/OurTeam';
 import CTA from '../../components/Home/CTA'
 import OurStory from '../../components/About/OurStory';
 import ProblemWeSolve from '../../components/About/ProblemWeSolve';
@@ -28,7 +27,6 @@ const page = () => {
             <ProblemWeSolve/>
             <CoreValues/>
             <WhatMakesUsDifferent/>
-            {/* <OurTeam/> */}
             <CTA/>
         </>
     )

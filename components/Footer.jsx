@@ -1,6 +1,4 @@
 'use client';
-
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiInstagram, FiLinkedin, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 
@@ -38,13 +36,13 @@ export default function Footer() {
                 >
                     {/* Brand + contact */}
                     <div className="flex flex-col">
-                        <Link href="/">
+                        <a href="/">
                             <img
                                 src="/img/sak-logo.png"
                                 alt="SAK"
                                 className="h-auto w-[160px] object-cover"
                             />
-                        </Link>
+                        </a>
 
                         <p className="mt-4 max-w-xs text-[14.5px] leading-relaxed text-white/50">
                             Civil, architectural and mechanical engineering services delivered
@@ -79,12 +77,12 @@ export default function Footer() {
                         <ul className="mt-5 flex flex-col gap-3">
                             {serviceLinks.map((link) => (
                                 <li key={link.href}>
-                                    <Link
+                                    <a
                                         href={link.href}
                                         className="text-[14.5px] text-white/70 transition-colors duration-200 hover:text-white"
                                     >
                                         {link.label}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -96,12 +94,12 @@ export default function Footer() {
                         <ul className="mt-5 flex flex-col gap-3">
                             {companyLinks.map((link) => (
                                 <li key={link.href}>
-                                    <Link
+                                    <a
                                         href={link.href}
                                         className="text-[14.5px] text-white/70 transition-colors duration-200 hover:text-white"
                                     >
                                         {link.label}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))}
                         </ul>

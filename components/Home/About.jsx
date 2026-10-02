@@ -1,6 +1,4 @@
 'use client';
-
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -49,13 +47,13 @@ export default function About() {
             professionals.
           </p>
 
-          <Link
+          <a
             href="/about"
             className="mt-8 inline-flex w-fit items-center gap-2 border-b border-[#11161A] pb-1 text-[14px] font-medium text-[#11161A] transition-opacity duration-200 hover:opacity-70"
           >
             Discover More
             <FiArrowRight size={15} />
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

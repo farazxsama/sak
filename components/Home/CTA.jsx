@@ -1,6 +1,4 @@
 'use client';
-
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -48,7 +46,7 @@ export default function CTA() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="mt-10"
           >
-            <Link
+            <a
               href="/contact"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[14px] font-medium text-[#11161A] transition-colors duration-200 hover:bg-white/90"
             >
@@ -57,7 +55,7 @@ export default function CTA() {
                 size={16}
                 className="transition-transform duration-200 group-hover:translate-x-1"
               />
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>

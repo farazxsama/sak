@@ -1,6 +1,4 @@
 'use client';
-
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi';
 
@@ -71,7 +69,7 @@ export default function FeaturedProjects() {
               }}
               className="group"
             >
-              <Link href={`/projects/${project.slug}`}>
+              <a href={`/projects/${project.slug}`}>
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={project.image}
@@ -92,7 +90,7 @@ export default function FeaturedProjects() {
                     {project.category}
                   </span>
                 </div>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>
@@ -105,7 +103,7 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
           className="mt-16 flex justify-center"
         >
-          <Link
+          <a
             href="/projects"
             className="group inline-flex items-center gap-2 rounded-full border border-[#11161A] px-7 py-3 text-[14px] font-medium text-[#11161A] transition-colors duration-200 hover:bg-[#11161A] hover:text-white"
           >
@@ -114,7 +112,7 @@ export default function FeaturedProjects() {
               size={15}
               className="transition-transform duration-200 group-hover:translate-x-1"
             />
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
