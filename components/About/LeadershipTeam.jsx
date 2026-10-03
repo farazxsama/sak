@@ -24,11 +24,11 @@ const team = [
   },
   {
     name: "Mohammed Sadathullah Khan",
-    role: "Managing Director & Chief Mechanical Designer",
+    role: "Managing Director",
     title: "Mechanical Engineer | 30+ Years Experience",
     description:
       "With more than 30 years of professional experience, Mohammed Sadathullah Khan brings extensive expertise in mechanical engineering and industrial project environments to SAK E&A.",
-    projects: ["Mitsubishi — Kuwait", "Hitachi Zosan - Oman", "Doosan Heavy Industries & Construction Co., Ltd.", "Oman Refinery"],
+    projects: ["GS Engineering and Construction", "Mitsubishi — Kuwait", "Hitachi Zosan - Oman", "Doosan Heavy Industries & Construction Co., Ltd.", "Oman Refinery"],
     image:
       "/img/team/managing-director.jpeg",
   },
